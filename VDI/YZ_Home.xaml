@@ -1,0 +1,37 @@
+﻿<Page x:Class="VDI.YZ_Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="500"
+	Title="YZ_Home">
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" VerticalAlignment="Center" FontFamily="微软雅黑" 
+        FontWeight="Bold" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center">
+            云 晫 科 技
+        </Label>
+
+        <!-- View report button -->
+        <TextBox Height="28.5" Margin="118,8,137,0" Grid.Row="2" TextWrapping="Wrap" Text="服务器IP" VerticalAlignment="Top" Opacity="0.7"/>
+        <Button Content="" HorizontalAlignment="Right" Height="28.5" Margin="0,8,102,0" Grid.Row="2" VerticalAlignment="Top" Width="31">
+        	<Button.Background>
+        		<ImageBrush ImageSource="Next.png"/>
+        	</Button.Background>
+        </Button>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="cloud2_bg.jpg"/>
+        </Grid.Background>
+    </Grid>
+</Page>

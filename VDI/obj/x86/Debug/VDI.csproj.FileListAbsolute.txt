@@ -1,0 +1,15 @@
+I:\study\Master_Paper\VDI\VDI\bin\Debug\VDI.exe
+I:\study\Master_Paper\VDI\VDI\bin\Debug\VDI.pdb
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\MainWindow.baml
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\MainWindow.g.cs
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\App.g.cs
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\VDI_MarkupCompile.cache
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\VDI.g.resources
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\VDI.Properties.Resources.resources
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\GenerateResource.read.1.tlog
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\GenerateResource.write.1.tlog
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\VDI.exe
+I:\study\Master_Paper\VDI\VDI\obj\x86\Debug\VDI.pdb
+E:\study\虚拟桌面\VDI\VDI\obj\x86\Debug\VDI.exe
+E:\study\虚拟桌面\VDI\VDI\obj\x86\Debug\VDI.pdb
