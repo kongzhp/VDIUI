@@ -23,22 +23,22 @@
 				<RowDefinition Height="auto"/>
 				<RowDefinition Height="auto" MinHeight="40"/>
 				<RowDefinition Height="auto" MinHeight="40"/>
-				<RowDefinition Height="auto" MinHeight="50"/>
-				<RowDefinition Height="auto"/>
-				<RowDefinition Height="auto"/>
-                <RowDefinition Height="100*" />
-            </Grid.RowDefinitions>
-			<Label Content="云晫科技" HorizontalAlignment="Center" Margin="47,8,268,8" Width="177" FontSize="21.333" Background="#00F3EFEF" Foreground="White" Grid.ColumnSpan="2" />
+				<RowDefinition Height="auto" MinHeight="40"/>
+				<RowDefinition Height="auto" MinHeight="40"/>
+            <RowDefinition Height="86*" />
+        </Grid.RowDefinitions>
+            <Label Content="云晫科技" FontWeight="Bold" HorizontalAlignment="Center" Margin="47,8,268,8" Width="177" FontSize="21.333" Background="#00F3EFEF" Foreground="White" Grid.ColumnSpan="2" />
 
-            <Label Content="用户名" Grid.Row="1" Grid.Column="0" Width="auto" FontSize="14.667" FontWeight="Bold" HorizontalAlignment="Right" Height="28" />
+            <Label Content="用户名" Grid.Row="1" Grid.Column="0" Width="auto" FontSize="14.667"  HorizontalAlignment="Right" Height="28" />
 			<TextBox  TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="122.487" Opacity="0.8" />
 
-			<Label Content="密 码" Grid.Row="2" Grid.Column="0" Width="auto" FontSize="14.667" FontWeight="Bold" HorizontalAlignment="Right" Height="28" />
+			<Label Content="密 码" Grid.Row="2" Grid.Column="0" Width="auto" FontSize="14.667"  HorizontalAlignment="Right" Height="28" />
 			<PasswordBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="122.487" Opacity="0.8"  />
 
 			
-			<Label Content="活动目录域" Grid.Row="3" Width="auto" FontSize="14.667" FontWeight="Bold" HorizontalAlignment="Right" Height="28" />
+			<Label Content="活动目录域" Grid.Row="3" Width="auto" FontSize="14.667" HorizontalAlignment="Right" Height="28" />
 			<ComboBox Grid.Row="3" Grid.Column="1" Width="122" Height="26.157" HorizontalAlignment="Left" />
-	
-	</Grid>
+            
+            <Button Grid.Row="4" Grid.Column="1" Margin="65,15,158,0" Height="25">登录</Button>
+    </Grid>
 </Page>
