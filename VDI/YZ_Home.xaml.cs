@@ -23,5 +23,11 @@ namespace VDI
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            User userPage = new User();
+            this.NavigationService.Navigate(userPage);
+        }
     }
 }

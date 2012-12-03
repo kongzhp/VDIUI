@@ -3,10 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="500"
+      Width="500" Height="300"
 	Title="YZ_Home">
-    <Grid>
+    <Grid Margin="0 0 0 0">
         <Grid.ColumnDefinitions>
 
             <ColumnDefinition />
@@ -24,14 +23,14 @@
 
         <!-- View report button -->
         <TextBox Height="28.5" Margin="118,8,137,0" Grid.Row="2" TextWrapping="Wrap" Text="服务器IP" VerticalAlignment="Top" Opacity="0.7"/>
-        <Button Content="" HorizontalAlignment="Right" Height="28.5" Margin="0,8,102,0" Grid.Row="2" VerticalAlignment="Top" Width="31">
+        <Button Content="" HorizontalAlignment="Right" Height="28.5" Margin="0,8,102,0" Grid.Row="2" VerticalAlignment="Top" Width="31" Click="Button_Click">
         	<Button.Background>
         		<ImageBrush ImageSource="Next.png"/>
         	</Button.Background>
         </Button>
 
         <Grid.Background>
-            <ImageBrush ImageSource="cloud2_bg.jpg"/>
+            <ImageBrush ImageSource="bg3.jpg"/>
         </Grid.Background>
     </Grid>
 </Page>

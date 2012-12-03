@@ -112,6 +112,10 @@
     <Resource Include="cloud2_bg.jpg" />
     <Resource Include="Next.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bg3.jpg" />
+    <Resource Include="bg4.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
