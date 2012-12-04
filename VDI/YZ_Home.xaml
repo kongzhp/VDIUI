@@ -4,7 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       Width="500" Height="300"
+      
 	Title="YZ_Home">
+    
     <Grid Margin="0 0 0 0">
         <Grid.ColumnDefinitions>
 
@@ -16,8 +18,22 @@
             <RowDefinition />
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" VerticalAlignment="Center" FontFamily="微软雅黑" 
-        FontWeight="Bold" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center">
+
+        <DockPanel Grid.Row="0" Height="100" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top" Width="Auto">
+            <Menu Height="22" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top" >
+                <MenuItem Header="文件(_F)">
+                    <MenuItem Header="新建(_N)" Name="newWindow" />
+                    <Separator/>
+                    <MenuItem Header="退出(_C)" Name="exit" />
+                </MenuItem>
+                <MenuItem Header="帮助(_H)" >
+                    <MenuItem Header="查看帮助(_V)" Name="help" />
+                    <Separator/>
+                    <MenuItem Header="关于我们(_A)" Name="about" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Label  Grid.Row="0" VerticalAlignment="Center" FontFamily="微软雅黑" FontWeight="Bold" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center">
             云 晫 科 技
         </Label>
 
