@@ -1,0 +1,68 @@
+﻿<Page x:Class="VDI.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="500"
+	Title="Page1">
+
+    <Grid>
+    	
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.227*"/>
+            <RowDefinition Height="0.773*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="bg4.jpg"/>
+        </Grid.Background>
+        <Label Content="云晫科技" FontWeight="Bold" HorizontalAlignment="Center" Margin="47,8,268,0" Width="177" FontSize="21.333" Background="#00F3EFEF" Foreground="White" VerticalAlignment="Center" />
+        <Border BorderBrush="Black" BorderThickness="0" Margin="96,21.9,85,35" Grid.Row="1" Background="#FF313131" Opacity="0.59" CornerRadius="10">
+        <Grid Margin="0,15,0,0" >
+        	<Grid.Resources>
+
+            <!-- stub ,just for binding domain list -->
+            <XmlDataProvider x:Key="DomainDataSource" XPath="Domains">
+                <x:XData>
+                    <Domains xmlns="">
+                        <Domain Name="Infrastructure Technology" DomainID="abcd" />
+                        <Domain Name="Human Recource" DomainID="abcd" />
+                        <Domain Name="Development Group" DomainID="abcd" />
+                    </Domains>
+                </x:XData>
+            </XmlDataProvider>
+
+            <!-- Name item template -->
+            <DataTemplate x:Key="nameItemTemplate">
+                <Label Content="{Binding XPath=@Name}"/>
+            </DataTemplate>
+
+        </Grid.Resources>	
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="0.304*" />
+					<ColumnDefinition Width="0.696*" />    		
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+			
+
+            <Label Content="用户名" Grid.Row="0" Grid.Column="0" Width="auto"  HorizontalAlignment="Right" Height="28" Foreground="#FFFDF9F9" />
+			<TextBox  TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,9" />
+
+			<Label Content="密 码" Grid.Row="1" Grid.Column="0" Width="auto"  HorizontalAlignment="Right" Height="28" Foreground="#FFFFFDFD" />
+			<PasswordBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,10" />
+
+			
+			<Label Content="活动目录域" Grid.Row="2" Width="auto" HorizontalAlignment="Right" Height="28" Foreground="White" />
+			<ComboBox Name="domainListBox" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 
+                      ItemsSource="{Binding Source={StaticResource DomainDataSource}, XPath=Domain}"
+                      ItemTemplate="{StaticResource nameItemTemplate}" Margin="0,7" />
+			<Button Grid.Row="3" Grid.Column="1"  Height="25" Margin="106.848,8,38.152,5.25" d:LayoutOverrides="GridBox">登录</Button>
+        </Grid>
+        </Border>
+    </Grid>
+</Page>

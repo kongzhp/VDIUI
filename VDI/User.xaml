@@ -7,58 +7,84 @@
 	WindowTitle="登录"
 	FlowDirection="LeftToRight"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="500"
-    Title="userPage">
+      d:DesignHeight="350" d:DesignWidth="500"
+    Title="userPage" Width="Auto">
+    <Grid>
 
-	<Grid x:Name="LayoutRoot">
-        <Grid.Resources>
+        <Grid.RowDefinitions>
+        	<RowDefinition Height="0.14*"/>
+            <RowDefinition Height="0.86*"/>
 
-            <!-- stub ,just for binding domain list -->
-            <XmlDataProvider x:Key="DomainDataSource" XPath="Domains">
-                <x:XData>
-                    <Domains xmlns="">
-                        <Domain Name="Infrastructure Technology" DomainID="abcd" />
-                        <Domain Name="Human Recource" DomainID="abcd" />
-                        <Domain Name="Development Group" DomainID="abcd" />
-                    </Domains>
-                </x:XData>
-            </XmlDataProvider>
-
-            <!-- Name item template -->
-            <DataTemplate x:Key="nameItemTemplate">
-                <Label Content="{Binding XPath=@Name}"/>
-            </DataTemplate>
-
-        </Grid.Resources>		
-			<Grid.Background>
-				<ImageBrush ImageSource="bg3.jpg"/>
-			</Grid.Background>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="180" />
-                <ColumnDefinition Width="276*" />
-            </Grid.ColumnDefinitions>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="auto" MinHeight="80"/>
-				<RowDefinition Height="auto" MinHeight="40"/>
-				<RowDefinition Height="auto" MinHeight="40"/>
-				<RowDefinition Height="auto" MinHeight="40"/>
-				<RowDefinition Height="auto" MinHeight="40"/>
-            <RowDefinition Height="86*" />
         </Grid.RowDefinitions>
-            <Label Content="云晫科技" FontWeight="Bold" HorizontalAlignment="Center" Margin="47,8,268,8" Width="177" FontSize="21.333" Background="#00F3EFEF" Foreground="White" Grid.ColumnSpan="2" />
+        <Grid.Background>
+            <ImageBrush ImageSource="bg4.jpg"/>
+        </Grid.Background>
+        <DockPanel Grid.Row="0" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top" Width="Auto">
+            <Menu Height="22" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top" >
+                <MenuItem Header="文件(_F)">
+                    <MenuItem Header="新建(_N)" Name="newWindow" />
+                    <Separator/>
+                    <MenuItem Header="退出(_C)" Name="exit" />
+                </MenuItem>
+                <MenuItem Header="帮助(_H)" >
+                    <MenuItem Header="查看帮助(_V)" Name="help" />
+                    <Separator/>
+                    <MenuItem Header="关于我们(_A)" Name="about" />
+                </MenuItem>
+            </Menu>
+		</DockPanel>
+        <StackPanel Margin="58,23.45,42,0" Grid.Row="1" Width="400" VerticalAlignment="Top">
+        	<Label Content="云晫科技" FontWeight="Bold" Width="101" FontSize="21.333" Background="#00F3EFEF" Foreground="White" BorderThickness="0" Height="75" HorizontalAlignment="Center" d:LayoutOverrides="Width" VerticalAlignment="Top" />
+        	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="#FF313131" Opacity="0.59" CornerRadius="10" Width="320" Height="186" HorizontalAlignment="Center" VerticalAlignment="Top">
+        		<Grid Margin="0,15" >
+        			<Grid.Resources>
 
-            <Label Content="用户名" Grid.Row="1" Grid.Column="0" Width="auto" FontSize="14.667"  HorizontalAlignment="Right" Height="28" />
-			<TextBox  TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,9" />
+                    <!-- stub ,just for binding domain list -->
+        				<XmlDataProvider x:Key="DomainDataSource" XPath="Domains">
+        					<x:XData>
+                            <Domains xmlns="">
+                                <Domain Name="Infrastructure Technology" DomainID="abcd" />
+                                <Domain Name="Human Resource" DomainID="abcd" />
+                                <Domain Name="Development Group" DomainID="abcd" />
+                            </Domains>
+                        </x:XData>
+        				</XmlDataProvider>
 
-			<Label Content="密 码" Grid.Row="2" Grid.Column="0" Width="auto" FontSize="14.667"  HorizontalAlignment="Right" Height="28" />
-			<PasswordBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,10" />
+                    <!-- Name item template -->
+        				<DataTemplate x:Key="nameItemTemplate">
+        					<Label Content="{Binding XPath=@Name}"/>
+        				</DataTemplate>
 
-			
-			<Label Content="活动目录域" Grid.Row="3" Width="auto" FontSize="14.667" HorizontalAlignment="Right" Height="28" />
-			<ComboBox Name="domainListBox" Grid.Row="3" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 
-                      ItemsSource="{Binding Source={StaticResource DomainDataSource}, XPath=Domain}"
-                      ItemTemplate="{StaticResource nameItemTemplate}" Margin="0,7" />
-            
-            <Button Grid.Row="4" Grid.Column="1" Margin="82,15,141,0" Height="25">登录</Button>
+        			</Grid.Resources>
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="0.304*" />
+        				<ColumnDefinition Width="0.696*" />
+        			</Grid.ColumnDefinitions>
+        			<Grid.RowDefinitions>
+        				<RowDefinition/>
+        				<RowDefinition/>
+        				<RowDefinition/>
+        				<RowDefinition/>
+        			</Grid.RowDefinitions>
+
+
+        			<Label Content="用户名" Grid.Row="0" Grid.Column="0" Width="auto"  HorizontalAlignment="Right" Height="28" Foreground="#FFFDF9F9" />
+        			<TextBox  TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,9" />
+
+        			<Label Content="密 码" Grid.Row="1" Grid.Column="0" Width="auto"  HorizontalAlignment="Right" Height="28" Foreground="#FFFFFDFD" />
+        			<PasswordBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,10" />
+
+
+        			<Label Content="活动目录域" Grid.Row="2" Width="auto" HorizontalAlignment="Right" Height="28" Foreground="White" />
+        			<ComboBox x:Name="domainListBox" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 
+        				ItemsSource="{Binding Source={StaticResource DomainDataSource}, XPath=Domain}"
+        				ItemTemplate="{StaticResource nameItemTemplate}" Margin="0,7" />
+        			<Button Grid.Row="3" Grid.Column="1"  Height="25" Margin="106.848,8,38.152,5.25" d:LayoutOverrides="GridBox" Content="登录"/>
+        		</Grid>
+        	</Border>
+        </StackPanel>
+		<TextBlock Margin="0,0,0,5" Grid.Row="2" VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center">
+        ©云晫科技，版权所有
+		</TextBlock>
     </Grid>
 </Page>

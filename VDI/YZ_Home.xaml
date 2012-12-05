@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      Width="500" Height="300"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="500"
       
 	Title="YZ_Home">
     
@@ -33,20 +34,26 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <Label  Grid.Row="0" VerticalAlignment="Center" FontFamily="微软雅黑" FontWeight="Bold" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center">
+        <Label  Grid.Row="0" FontWeight="Bold" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20">
             云 晫 科 技
         </Label>
 
         <!-- View report button -->
-        <TextBox Height="28.5" Margin="118,8,137,0" Grid.Row="2" TextWrapping="Wrap" Text="服务器IP" VerticalAlignment="Top" Opacity="0.7"/>
-        <Button Content="" HorizontalAlignment="Right" Height="28.5" Margin="0,8,102,0" Grid.Row="2" VerticalAlignment="Top" Width="31" Click="Button_Click">
-        	<Button.Background>
-        		<ImageBrush ImageSource="Next.png"/>
-        	</Button.Background>
-        </Button>
+        <StackPanel Height="47" Margin="0,8,0,0" Grid.Row="2" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+<!-- View report button -->
+        	<TextBox Height="28.5" Width="270" Margin="0,0,6,0" Padding="1 3" TextWrapping="Wrap" Text="服务器IP" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        	<Button Content="" HorizontalAlignment="Left" Height="28.5" Width="31" Click="Button_Click">
+        		<Button.Background>
+        			<ImageBrush ImageSource="ArrowHead-Right.png"/>
+        		</Button.Background>
+        	</Button>
+        </StackPanel>
+        <TextBlock Margin="0,0,0,5" Grid.Row="2" VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center">
+        ©云晫科技，版权所有
+		</TextBlock>
 
         <Grid.Background>
-            <ImageBrush ImageSource="bg3.jpg"/>
+            <ImageBrush ImageSource="bg4.jpg"/>
         </Grid.Background>
     </Grid>
 </Page>
