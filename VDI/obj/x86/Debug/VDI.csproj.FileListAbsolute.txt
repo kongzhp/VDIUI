@@ -50,3 +50,8 @@ I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\GenerateResource.write.1.tlog
 I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\Page1.baml
 I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\Page1.g.cs
 I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\App.baml
+E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\Page1.baml
+E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\App.baml
+E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\Page1.g.cs
+E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\DesktopPools.baml
+E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\DesktopPools.g.cs

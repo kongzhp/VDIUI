@@ -1,0 +1,57 @@
+﻿<Page x:Class="VDI.DesktopPools"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="500"
+	Title="DesktopPools">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.14*"/>
+            <RowDefinition Height="0.86*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="image/bg4.jpg"/>
+        </Grid.Background>
+        <DockPanel Grid.Row="0" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top" Width="Auto">
+            <Menu Height="22" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top" >
+                <MenuItem Header="文件(_F)">
+                    <MenuItem Header="新建(_N)" Name="newWindow" />
+                    <Separator/>
+                    <MenuItem Header="退出(_C)" Name="exit" />
+                </MenuItem>
+                <MenuItem Header="帮助(_H)" >
+                    <MenuItem Header="查看帮助(_V)" Name="help" />
+                    <Separator/>
+                    <MenuItem Header="关于我们(_A)" Name="about" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <StackPanel Margin="43,-12,31,28" Grid.Row="1" HorizontalAlignment="Center" Width="378">
+        	<StackPanel HorizontalAlignment="Right" Height="31" Width="144" Orientation="Horizontal" Margin="0,0,0,5">
+        		<Label Content="显示：" Height="26" Margin="0" Width="47" Foreground="White" HorizontalAlignment="Left"/>
+        		<ComboBox Margin="0" Width="92" Height="25" Opacity="0.835" Background="#FFE7E7E7">
+        			<ComboBoxItem Content="全屏" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1290*1200" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1290*1080" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1680*1050" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1600*1200" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1440*1050" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1440*900" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1280*1024" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1280*768" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1280*720" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="1024*768" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="800*600" Height="22" Margin="0" Opacity="0.835"/>
+        			<ComboBoxItem Content="640*480" Height="22" Margin="0" Opacity="0.835"/>
+        		</ComboBox>
+        	</StackPanel>
+        	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="#FF313131" Opacity="0.635" CornerRadius="10" Width="378" Height="228">
+        		<StackPanel Margin="0" Width="378"/>
+        	</Border>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -17,7 +17,7 @@
 
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="bg4.jpg"/>
+            <ImageBrush ImageSource="image/bg4.jpg"/>
         </Grid.Background>
         <DockPanel Grid.Row="0" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top" Width="Auto">
             <Menu Height="22" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top" >
@@ -79,7 +79,7 @@
         			<ComboBox x:Name="domainListBox" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 
         				ItemsSource="{Binding Source={StaticResource DomainDataSource}, XPath=Domain}"
         				ItemTemplate="{StaticResource nameItemTemplate}" Margin="0,7" />
-        			<Button Grid.Row="3" Grid.Column="1"  Height="25" Margin="106.848,8,38.152,5.25" d:LayoutOverrides="GridBox" Content="登录"/>
+        			<Button Grid.Row="3" Grid.Column="1"  Height="25" Margin="106.848,8,38.152,5.25" d:LayoutOverrides="GridBox" Content="登录" Click="Button_Click" />
         		</Grid>
         	</Border>
         </StackPanel>

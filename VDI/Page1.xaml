@@ -14,7 +14,7 @@
             <RowDefinition Height="0.773*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="bg4.jpg"/>
+            <ImageBrush ImageSource="image/bg4.jpg"/>
         </Grid.Background>
         <Label Content="云晫科技" FontWeight="Bold" HorizontalAlignment="Center" Margin="47,8,268,0" Width="177" FontSize="21.333" Background="#00F3EFEF" Foreground="White" VerticalAlignment="Center" />
         <Border BorderBrush="Black" BorderThickness="0" Margin="96,21.9,85,35" Grid.Row="1" Background="#FF313131" Opacity="0.59" CornerRadius="10">

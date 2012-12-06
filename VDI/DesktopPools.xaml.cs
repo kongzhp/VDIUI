@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,23 +9,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace VDI
 {
-	public partial class User
-	{
-		public User()
-		{
-			this.InitializeComponent();
-
-			// Insert code required on object creation below this point.
-		}
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+    /// <summary>
+    /// Interaction logic for DesktopPools.xaml
+    /// </summary>
+    public partial class DesktopPools : Page
+    {
+        public DesktopPools()
         {
-            DesktopPools dpools = new DesktopPools();
-            this.NavigationService.Navigate(dpools);
+            InitializeComponent();
         }
-	}
+    }
 }

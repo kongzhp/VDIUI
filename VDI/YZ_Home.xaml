@@ -48,14 +48,15 @@
         		</Button.Background>
 
         	</Button>-->
-            <Button Style="{StaticResource SpecialButton}" />
+            <Button Style="{StaticResource SpecialButton}"  Click="Button_Click"/>
+            
         </StackPanel>
         <TextBlock Margin="0,0,0,5" Grid.Row="2" VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center">
         ©云晫科技，版权所有
 		</TextBlock>
 
         <Grid.Background>
-            <ImageBrush ImageSource="bg4.jpg"/>
+            <ImageBrush ImageSource="image/bg4.jpg"/>
         </Grid.Background>
     </Grid>
 </Page>

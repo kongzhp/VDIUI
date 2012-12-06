@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DesktopPools.xaml.cs">
+      <DependentUpon>DesktopPools.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
@@ -66,6 +69,10 @@
     <Compile Include="YZ_Home.xaml.cs">
       <DependentUpon>YZ_Home.xaml</DependentUpon>
     </Compile>
+    <Page Include="DesktopPools.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -116,18 +123,21 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="cloud2_bg.jpg" />
-    <Resource Include="Next.png" />
+    <Resource Include="image\cloud2_bg.jpg" />
+    <Resource Include="image\Next.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bg3.jpg" />
-    <Resource Include="bg4.jpg" />
+    <Resource Include="image\bg3.jpg" />
+    <Resource Include="image\bg4.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ArrowHead-Right.png" />
+    <Resource Include="image\ArrowHead-Right.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ArrowHead-Right_MouseOn.png" />
+    <Resource Include="image\ArrowHead-Right_MouseOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\ArrowHead-Right_OnClick.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
