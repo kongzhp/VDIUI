@@ -42,11 +42,13 @@
         <StackPanel Height="47" Margin="0,8,0,0" Grid.Row="2" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
 <!-- View report button -->
         	<TextBox Height="28.5" Width="270" Margin="0,0,6,0" Padding="1 3" TextWrapping="Wrap" Text="服务器IP" Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        	<Button Content="" HorizontalAlignment="Left" Height="28.5" Width="31" Click="Button_Click">
+            <!--<Button Content="" Style="{StaticResource SpecialButton}"  HorizontalAlignment="Left" Height="28.5" Width="31" Click="Button_Click">
         		<Button.Background>
         			<ImageBrush ImageSource="ArrowHead-Right.png"/>
         		</Button.Background>
-        	</Button>
+
+        	</Button>-->
+            <Button Style="{StaticResource SpecialButton}" />
         </StackPanel>
         <TextBlock Margin="0,0,0,5" Grid.Row="2" VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center">
         ©云晫科技，版权所有

@@ -49,3 +49,4 @@ I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\GenerateResource.read.1.tlog
 I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\GenerateResource.write.1.tlog
 I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\Page1.baml
 I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\Page1.g.cs
+I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\App.baml

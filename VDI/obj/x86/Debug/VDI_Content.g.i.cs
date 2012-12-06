@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("arrowhead-right.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("arrowhead-right_mouseon.png")]
 
 
