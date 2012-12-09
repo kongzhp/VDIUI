@@ -9,7 +9,21 @@
       
 	Title="YZ_Home">
     <Page.Resources>
-        <src:IpRule x:Key="IpValidate"/>
+        <src:IpRule x:Key="iprule"/>
+        <Style x:Key="ipboxTemplate" TargetType="TextBox">
+            <Style.Triggers>
+
+                <Trigger Property="Validation.HasError" Value="true">
+                    
+                    <Setter Property="ToolTip"
+
+                            Value="{Binding RelativeSource={RelativeSource Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+
+                </Trigger>
+
+            </Style.Triggers>
+
+        </Style>
     </Page.Resources>
     <Grid Margin="0 0 0 0">
         <Grid.ColumnDefinitions>
@@ -44,9 +58,10 @@
     
         <StackPanel Height="47" Margin="0,8,0,0" Grid.Row="2" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
 
-            <TextBox Name="ipTextBox" Height="28.5" Width="270" Margin="0,0,6,0" Padding="1 3" TextWrapping="Wrap"  Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox Name="ipTextBox" Height="28.5" Width="270" Margin="0,0,6,0" Padding="1 3" TextWrapping="Wrap" 
+                     Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{StaticResource ipboxTemplate}" >
                 <TextBox.Text>
-                    <Binding Path="IP" UpdateSourceTrigger="LostFocus" Mode="Default">
+                    <Binding Source="{StaticResource iprule}" Path="IP" UpdateSourceTrigger="PropertyChanged" Mode="Default">
                         <Binding.ValidationRules>
                             <src:IpRule/>
                         </Binding.ValidationRules>
@@ -60,7 +75,7 @@
         <TextBlock Margin="0,0,0,5" Grid.Row="2" VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center">
         ©云晫科技，版权所有
 		</TextBlock>
-
+        <TextBlock Grid.Row="2" Height="32" HorizontalAlignment="Left" Margin="96,52,0,0" Name="warningBlock" VerticalAlignment="Top" Width="270" />
         <Grid.Background>
             <ImageBrush ImageSource="image/bg4.jpg"/>
         </Grid.Background>

@@ -12,10 +12,15 @@ namespace VDI
 
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-            if ( isValidIP(value.ToString()) ){
+            if (isValidIP(value.ToString()))
+            {
                 return ValidationResult.ValidResult;
-            }else
+            }
+            else
+            {
+                
                 return new ValidationResult(false, "IP地址格式不正确！");
+            }
         }
         private bool isValidIP(string ip)
         {

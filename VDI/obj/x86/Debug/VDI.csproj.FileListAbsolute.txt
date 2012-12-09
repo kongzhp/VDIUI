@@ -57,3 +57,5 @@ E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\DesktopPools.baml
 E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\DesktopPools.g.cs
 I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\DesktopPools.baml
 I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\DesktopPools.g.cs
+I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\VDI_MarkupCompile.lref
