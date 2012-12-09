@@ -4,13 +4,60 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="350" d:DesignWidth="500"
+      d:DesignHeight="443" d:DesignWidth="563"
 	Title="DesktopPools">
-
+    
     <Grid>
+        <Grid.Resources>
+
+            <!-- stub ,just for binding pool list -->
+            <XmlDataProvider x:Key="PoolDataSource" XPath="Pools">
+                <x:XData>
+                    <Pools xmlns="">
+                        <Pool Name="Pool-1" DoolID="abcde" Ready="1"/>
+                        <Pool Name="Pool-2" DoolID="abcdf" Ready="0"/>
+                        <Pool Name="Pool-3" DoolID="abcdg" Ready="1"/>
+                        <Pool Name="Pool-4" DoolID="abcdg" Ready="0"/>
+                        <Pool Name="Pool-3" DoolID="abcdg" Ready="1"/>
+                    </Pools>
+                </x:XData>
+            </XmlDataProvider>
+
+            <!-- ListBox item template, display the pools info -->
+            <DataTemplate x:Key="poolsListItemTemplate">
+                <Grid Height="50" Width="350">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="image/DesktopReady.png" Grid.Column="0" Name="desktopPic"/>
+                    <Label Margin="5" Grid.Column="1" Content="{Binding XPath=@Name}"/>
+                    <Label Margin="5" Grid.Column="2" Content="状态:"/>
+                    <Label Margin="0,5" Grid.Column="3" Content="准备" Name="desktopStatus"/>
+
+                </Grid>
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding XPath=@Ready}">
+                        <DataTrigger.Value>0</DataTrigger.Value>
+                        <Setter Property="Image.Source" TargetName="desktopPic" Value="image/DesktopNReady.png"/>
+                        <Setter Property="Label.Content" TargetName="desktopStatus" Value="准备中" />
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <Style TargetType="ListBoxItem">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#FFA0C4FC"/>
+                    </Trigger>  
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.14*"/>
-            <RowDefinition Height="0.86*"/>
+			<RowDefinition Height="0.079*"/>
+            <RowDefinition Height="0.781*"/>
 
         </Grid.RowDefinitions>
         <Grid.Background>
@@ -30,12 +77,12 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <StackPanel Margin="43,-12,31,28" Grid.Row="1" HorizontalAlignment="Center" Width="378">
+        <StackPanel  Grid.Row="2" HorizontalAlignment="Center" Width="378" Margin="0">
         	<StackPanel HorizontalAlignment="Right" Height="31" Width="144" Orientation="Horizontal" Margin="0,0,0,5">
         		<Label Content="显示：" Height="26" Margin="0" Width="47" Foreground="White" HorizontalAlignment="Left"/>
-        		<ComboBox Margin="0" Width="92" Height="25" Opacity="0.835" Background="#FFE7E7E7">
-        			<ComboBoxItem Content="全屏" Height="22" Margin="0" Opacity="0.835"/>
-        			<ComboBoxItem Content="1290*1200" Height="22" Margin="0" Opacity="0.835"/>
+                <ComboBox Margin="0" Width="92" Height="25" Opacity="0.835" Background="#FFE7E7E7" >
+                    <ComboBoxItem Content="全屏" Height="22" Margin="0" Opacity="0.835" IsSelected="True"/>
+        			<ComboBoxItem Content="1290*1200" Height="22" Margin="0" Opacity="0.835" />
         			<ComboBoxItem Content="1290*1080" Height="22" Margin="0" Opacity="0.835"/>
         			<ComboBoxItem Content="1680*1050" Height="22" Margin="0" Opacity="0.835"/>
         			<ComboBoxItem Content="1600*1200" Height="22" Margin="0" Opacity="0.835"/>
@@ -49,9 +96,15 @@
         			<ComboBoxItem Content="640*480" Height="22" Margin="0" Opacity="0.835"/>
         		</ComboBox>
         	</StackPanel>
-        	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="#FF313131" Opacity="0.635" CornerRadius="10" Width="378" Height="228">
-        		<StackPanel Margin="0" Width="378"/>
+        	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="White" Opacity="0.635" CornerRadius="10" Width="378" Height="228">
+                <ListBox ItemsSource="{Binding Source={StaticResource PoolDataSource},XPath=Pool}" ItemTemplate="{StaticResource poolsListItemTemplate}" VerticalAlignment="Top" BorderThickness="0" Margin="1,5,1,0" Height="218"/>
+
         	</Border>
+        	<Button Content="连接" HorizontalAlignment="Right" Height="26" Margin="0,10,0,0" Width="96.5" Opacity="0.745"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left"  Grid.Row="1" Width="130" Orientation="Horizontal" Margin="74,0,0,0">
+        	<Label Content="Kongzhp" Foreground="#FF004AFF" Background="#00DE0000"/>
+        	<Label Content=",欢迎您！" Foreground="White" />
         </StackPanel>
     </Grid>
 </Page>

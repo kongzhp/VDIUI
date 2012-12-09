@@ -1,6 +1,7 @@
 ﻿<NavigationWindow x:Class="VDI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ResizeMode="NoResize"
         Title="云晫云桌面" Height="500" Width="650" Source="YZ_Home.xaml">
  
 </NavigationWindow>

@@ -60,9 +60,11 @@
     <Compile Include="DesktopPools.xaml.cs">
       <DependentUpon>DesktopPools.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IpRule.cs" />
     <Compile Include="Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="server\ServerCommunicator.cs" />
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
@@ -138,6 +140,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\ArrowHead-Right_OnClick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\DesktopReady.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\DesktopNReady.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
