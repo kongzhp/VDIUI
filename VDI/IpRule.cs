@@ -22,7 +22,7 @@ namespace VDI
                 return new ValidationResult(false, "IP地址格式不正确！");
             }
         }
-        private bool isValidIP(string ip)
+        public static bool isValidIP(string ip)
         {
             //判断是否为IP
             return Regex.IsMatch(ip, @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$");

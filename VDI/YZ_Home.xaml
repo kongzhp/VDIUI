@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:src="clr-namespace:VDI"
       mc:Ignorable="d" 
-      d:DesignHeight="350" d:DesignWidth="500"
+      d:DesignHeight="350" d:DesignWidth="450"
       
 	Title="YZ_Home">
     <Page.Resources>
@@ -24,6 +24,13 @@
             </Style.Triggers>
 
         </Style>
+        <Style x:Key="warningBoxStyle" TargetType="TextBlock">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Foreground" Value="#FFFF0909" />
+            <Setter Property="Padding" Value="3 0 0 0 " />
+            
+        </Style>
     </Page.Resources>
     <Grid Margin="0 0 0 0">
         <Grid.ColumnDefinitions>
@@ -37,7 +44,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Row="0" Height="100" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top" Width="Auto">
+        <!--<DockPanel Grid.Row="0" Height="100" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top" Width="Auto">
             <Menu Height="22" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top" >
                 <MenuItem Header="文件(_F)">
                     <MenuItem Header="新建(_N)" Name="newWindow" />
@@ -50,32 +57,30 @@
                     <MenuItem Header="关于我们(_A)" Name="about" />
                 </MenuItem>
             </Menu>
-        </DockPanel>
+        </DockPanel>-->
         <Label  Grid.Row="0" FontWeight="Bold" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20">
             云 晫 科 技
         </Label>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0" >
+        	<StackPanel Height="47" Orientation="Horizontal" HorizontalAlignment="Center">
 
-    
-        <StackPanel Height="47" Margin="0,8,0,0" Grid.Row="2" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+        		<TextBox x:Name="ipTextBox" Height="28.5" Width="270" Margin="0,0,6,0" Padding="1 3" TextWrapping="Wrap" 
+        			Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{StaticResource ipboxTemplate}" >
+        			<Binding Source="{StaticResource iprule}" Path="IP" UpdateSourceTrigger="PropertyChanged" Mode="Default">
+        				<Binding.ValidationRules>
+        					<src:IpRule/>
+        				</Binding.ValidationRules>
+        			</Binding>
+        		</TextBox>
 
-            <TextBox Name="ipTextBox" Height="28.5" Width="270" Margin="0,0,6,0" Padding="1 3" TextWrapping="Wrap" 
-                     Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{StaticResource ipboxTemplate}" >
-                <TextBox.Text>
-                    <Binding Source="{StaticResource iprule}" Path="IP" UpdateSourceTrigger="PropertyChanged" Mode="Default">
-                        <Binding.ValidationRules>
-                            <src:IpRule/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
-
-            <Button Style="{StaticResource SpecialButton}"  Click="Button_Click"/>
+        		<Button Style="{StaticResource SpecialButton}"  Click="Button_Click"/>
             
+        	</StackPanel>
+        	<TextBlock Height="21" HorizontalAlignment="Left" x:Name="warningBlock" VerticalAlignment="Center" Width="270" />
         </StackPanel>
         <TextBlock Margin="0,0,0,5" Grid.Row="2" VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center">
         ©云晫科技，版权所有
 		</TextBlock>
-        <TextBlock Grid.Row="2" Height="32" HorizontalAlignment="Left" Margin="96,52,0,0" Name="warningBlock" VerticalAlignment="Top" Width="270" />
         <Grid.Background>
             <ImageBrush ImageSource="image/bg4.jpg"/>
         </Grid.Background>
