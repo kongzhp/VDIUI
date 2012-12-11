@@ -16,7 +16,7 @@ namespace ServerChannel
 {
     public class PoolList
     {
-        public ArrayList pools = null;
+        private ArrayList pools = null;
 
         public PoolList()
         {
@@ -37,7 +37,7 @@ namespace ServerChannel
             for (int i = 0; i < pools.Count; i++)
             {
                 Pool p = (Pool)pools[i];
-                if (p.id == id)
+                if (p.getId().Equals(id))
                     pool = p;
             }
             return pool;
@@ -58,14 +58,24 @@ namespace ServerChannel
             for (int i = 0; i < newPools.Count; i++)
             {
                 Pool pNew = (Pool)newPools[i];
-                Pool p = findPoolById(pNew.id);
-                if (null == p || p.ready != pNew.ready)
+                Pool p = findPoolById(pNew.getId());
+                if (null == p || p.getStatus() != pNew.getStatus())
                 {
                     pools = newPools;
                     return 1;
                 }
             }
             return 0;
+        }
+
+        public ArrayList getPools()
+        {
+            return pools;
+        }
+
+        public void setPools(ArrayList pools)
+        {
+            this.pools = pools;
         }
     }
 }

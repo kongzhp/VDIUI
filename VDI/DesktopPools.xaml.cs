@@ -11,7 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Collections;
+using ServerChannel;
 namespace VDI
 {
     /// <summary>
@@ -19,9 +20,21 @@ namespace VDI
     /// </summary>
     public partial class DesktopPools : Page
     {
+        public ArrayList PList { get; set; }
+        public String UserID { get; set; }
+        public String UserName { get; set; }
         public DesktopPools()
         {
+            
             InitializeComponent();
         }
+        public DesktopPools(String userID, String userName , PoolList pList)
+            : this()
+        {
+            UserID = userID;
+            UserName = userName;
+            PList = pList.getPools();
+        }
     }
+    
 }

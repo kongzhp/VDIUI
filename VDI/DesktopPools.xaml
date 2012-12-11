@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:c="clr-namespace:ServerChannel;assembly=ServerChannel"
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="450"
 	Title="DesktopPools">
@@ -33,14 +34,14 @@
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
                     <Image Source="image/DesktopReady.png" Grid.Column="0" Name="desktopPic"/>
-                    <Label Margin="5" Grid.Column="1" Content="{Binding XPath=@Name}"/>
+                    <Label Margin="5" Grid.Column="1" Content="{Binding Path=name}"/>
                     <Label Margin="5" Grid.Column="2" Content="状态:"/>
                     <Label Margin="0,5" Grid.Column="3" Content="准备" Name="desktopStatus"/>
 
                 </Grid>
                 <DataTemplate.Triggers>
-                    <DataTrigger Binding="{Binding XPath=@Ready}">
-                        <DataTrigger.Value>0</DataTrigger.Value>
+                    <DataTrigger Binding="{Binding Path=ready}">
+                        <DataTrigger.Value>False</DataTrigger.Value>
                         <Setter Property="Image.Source" TargetName="desktopPic" Value="image/DesktopNReady.png"/>
                         <Setter Property="Label.Content" TargetName="desktopStatus" Value="准备中" />
                     </DataTrigger>
@@ -79,7 +80,7 @@
         <StackPanel  Grid.Row="0" HorizontalAlignment="Center" Width="378" Margin="0" VerticalAlignment="Center" >
         	<StackPanel Height="31" Orientation="Horizontal" Margin="0">
         		<StackPanel Width="130" Orientation="Horizontal" Height="27.65" VerticalAlignment="Top">
-        			<Label Content="Kongzhp" Foreground="#FF004AFF" Background="#00DE0000"/>
+                    <Label Content="{Binding Path=UserName}" Foreground="#FF004AFF" Background="#00DE0000"/>
         			<Label Content=",欢迎您！" Foreground="White" />
         		</StackPanel>
         		<StackPanel HorizontalAlignment="Right" Height="31" Width="144" Orientation="Horizontal" Margin="105,0,0,5">
@@ -102,7 +103,7 @@
         		</StackPanel>
         	</StackPanel>
         	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="White" Opacity="0.635" CornerRadius="10" Width="378" Height="205">
-                <ListBox ItemsSource="{Binding Source={StaticResource PoolDataSource}, XPath=Pool}" ItemTemplate="{StaticResource poolsListItemTemplate}" VerticalAlignment="Top" BorderThickness="0" Margin="1,5,1,0" Height="188"/>
+                <ListBox ItemsSource="{Binding Path=PList}"  ItemTemplate="{StaticResource poolsListItemTemplate}" VerticalAlignment="Top" BorderThickness="0" Margin="1,5,1,0" Height="188"/>
 
         	</Border>
         	<Button Content="连接" HorizontalAlignment="Right" Height="26" Margin="0,10,0,0" Width="96.5" Opacity="0.745"/>

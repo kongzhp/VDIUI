@@ -3,6 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 	x:Class="VDI.User"
+    
 	x:Name="Page"
 	WindowTitle="登录"
 	FlowDirection="LeftToRight"
@@ -69,15 +70,16 @@
 
 
         			<Label Content="用户名" Grid.Row="0" Grid.Column="0" Width="auto"  HorizontalAlignment="Right" Height="28" Foreground="#FFFDF9F9" />
-        			<TextBox  TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,9" />
+        			<TextBox Name="username" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,9" />
 
         			<Label Content="密 码" Grid.Row="1" Grid.Column="0" Width="auto"  HorizontalAlignment="Right" Height="28" Foreground="#FFFFFDFD" />
-        			<PasswordBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,10" />
+        			<PasswordBox Name="password" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,10" />
 
 
         			<Label Content="活动目录域" Grid.Row="2" Width="auto" HorizontalAlignment="Right" Height="28" Foreground="White" />
                     <ComboBox x:Name="domainListBox" Loaded="domainListBox_Loaded" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 2" 
-        				 SelectedValue="{Binding Path=DomainNameList, Mode=TwoWay}" Margin="0,7" />
+        				 SelectedValue="{Binding Path=DomainList, Mode=TwoWay}"
+                         SelectedValuePath="ID" DisplayMemberPath="Name" Margin="0,7" />
                     <!--<ComboBox x:Name="domainListBox" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 
         				ItemsSource="{Binding Source={StaticResource DomainDataSource}, XPath=Domain}"
         				ItemTemplate="{StaticResource nameItemTemplate}" Margin="0,7" />-->

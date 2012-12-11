@@ -58,7 +58,7 @@ namespace VDI
                 ArrayList domains = serverChannel.getDomains(IPsel);
                 //把光标样式改回arrow
                // this.Cursor = Cursors.Arrow;
-                User userPage = new User(domains);
+                User userPage = new User(domains, IPsel);
                 this.NavigationService.Navigate(userPage);
             }
         }

@@ -15,9 +15,9 @@ namespace ServerChannel
 {
     public class Pool
     {
-        public string id;
-        public string name;
-        public bool ready;
+        private string id;
+        private string name;
+        private bool ready;
 
         public Pool()
         {
@@ -29,6 +29,36 @@ namespace ServerChannel
         {
             this.id = id;
             this.name = name;
+            this.ready = ready;
+        }
+
+        public string getId()
+        {
+            return id;
+        }
+
+        public string getName()
+        {
+            return name;
+        }
+
+        public bool getStatus()
+        {
+            return ready;
+        }
+
+        public void setId(string id)
+        {
+            this.id = id;
+        }
+
+        public void setName(string name)
+        {
+            this.name = name;
+        }
+
+        public void setStatus(bool ready)
+        {
             this.ready = ready;
         }
     }

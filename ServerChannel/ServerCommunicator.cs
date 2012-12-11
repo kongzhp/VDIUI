@@ -93,8 +93,7 @@ namespace ServerChannel
         /*
          * Usage: 返回给定ip的server vdi虚拟机中所有的domain
          * Param: ip(string): server ip
-         * Retern: ArrayList: 元素为domain信息，大小为2的string数组，string[0]为domain name，string[1]为domain id，
-         *         如{{domain_name1, domain_id1}, {domain_name2, domain_id2}, ...}
+         * Retern: ArrayList: 元素为Domain类对象
          *         如果为空，则表示返回信息为空或格式不对或没有domain返回
          * Throw: 可能有以下几种类型的异常产生，此处不作处理直接抛出
          *   IOException, OutOfMemoryException: IO异常，产生自ReadToEnd
@@ -132,13 +131,11 @@ namespace ServerChannel
 
             for (int i = 0; i < (ss.Length - 1) / 2; i++)
             {
-                string[] sss1 = ss[1 + i * 2].Split('=');
-                string[] sss2 = ss[2 + i * 2].Split('=');
+                string[] sss1 = ss[1 + i * 2].Split('=');   // domain name
+                string[] sss2 = ss[2 + i * 2].Split('=');   // domain id
                 if (sss1.Length < 2 || sss2.Length < 2)
                     continue;
-                string[] domain = new string[2];
-                domain[0] = sss1[1];
-                domain[1] = sss2[1];
+                Domain domain = new Domain(sss2[1], sss1[1]);
                 result.Add(domain);
             }         
 
@@ -151,17 +148,17 @@ namespace ServerChannel
          *        username(string): 用户名
          *        password(string): 密码
          *        domain(string): domain id
-         * Retern: ArrayList: 用户id和PoolList，ArrayList[0]=string pool_id, ArrayList[1]=PoolList 
-         *         如果为空数组，则表示返回信息为空或格式不对
+         * Retern: GetPoolResult 
+         *         如果为null，则表示返回信息为空或格式不对
          * Throw: 可能有以下几种类型的异常产生，此处不作处理直接抛出
          *   IOException, OutOfMemoryException: IO异常，产生自ReadToEnd
          *   WebExcption: 处理请求超时或发生错误，产生自GetResponse
          *   OtherException: 其他一些异常，产生自create request, StreamReader
          */
-        public ArrayList getPoosWithAuth(string ip, string username, string password, string domain)
+        public GetPoolResult getPoosWithAuth(string ip, string username, string password, string domain)
         {
             if (null == ip || ip.Equals(""))
-                return new ArrayList();
+                return null;
 
             string url = "http://" + ip + "/dp/rpc/dc/login?user=" + username + "&ldap=" + domain + "&pass=" + password;
             string s = "";
@@ -180,19 +177,18 @@ namespace ServerChannel
             catch (Exception)
             {
                 throw;
-            }
-
-            ArrayList result = new ArrayList();
+            }       
             
             string[] ss = s.Split('\n');
+            string userId = "";
             if (ss.Length < 1)
-                return result;
+                return null;
             else
             {
                 string[] sss = ss[0].Split('=');
                 if (sss.Length < 2)
-                    return result;
-                result.Add(sss[1]);
+                    return null;
+                userId = sss[1];
             }
 
             ArrayList pools = new ArrayList();
@@ -210,7 +206,7 @@ namespace ServerChannel
                 pools.Add(pool);
             }
             PoolList poolList = new PoolList(pools);
-            result.Add(poolList);
+            GetPoolResult result = new GetPoolResult(userId, poolList);
             return result;
         }
 
