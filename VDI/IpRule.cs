@@ -19,7 +19,7 @@ namespace VDI
             else
             {
                 
-                return new ValidationResult(false, "IP地址格式不正确！");
+                return new ValidationResult(false, "IP地址格式:x.x.x.x 如：192.168.0.1");
             }
         }
         public static bool isValidIP(string ip)

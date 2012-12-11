@@ -64,7 +64,6 @@
     <Compile Include="Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="server\ServerCommunicator.cs" />
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
@@ -146,6 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\DesktopNReady.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServerChannel\ServerChannel.csproj">
+      <Project>{EFA6CED2-0603-4CB0-A03A-804C480A9965}</Project>
+      <Name>ServerChannel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

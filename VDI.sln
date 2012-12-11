@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VDI", "VDI\VDI.csproj", "{9C5661B3-F2F9-482E-B601-11A127DAEF42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerChannel", "ServerChannel\ServerChannel.csproj", "{EFA6CED2-0603-4CB0-A03A-804C480A9965}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{9C5661B3-F2F9-482E-B601-11A127DAEF42}.Debug|x86.Build.0 = Debug|x86
 		{9C5661B3-F2F9-482E-B601-11A127DAEF42}.Release|x86.ActiveCfg = Release|x86
 		{9C5661B3-F2F9-482E-B601-11A127DAEF42}.Release|x86.Build.0 = Release|x86
+		{EFA6CED2-0603-4CB0-A03A-804C480A9965}.Debug|x86.ActiveCfg = Debug|x86
+		{EFA6CED2-0603-4CB0-A03A-804C480A9965}.Debug|x86.Build.0 = Debug|x86
+		{EFA6CED2-0603-4CB0-A03A-804C480A9965}.Release|x86.ActiveCfg = Release|x86
+		{EFA6CED2-0603-4CB0-A03A-804C480A9965}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

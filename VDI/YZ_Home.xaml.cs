@@ -11,8 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ServerChannel;
 using System.Collections;
+using ServerChannel;
 namespace VDI
 {
     /// <summary>
@@ -43,14 +43,21 @@ namespace VDI
             }
             else
             {
+                //把光标样式改为pen
+                Mouse.SetCursor(Cursors.Wait);
+                
+                //this.Visibility = System.Windows.Visibility.Hidden;
+                //this.Visibility = System.Windows.Visibility.Visible;
                 ServerCommunicator serverChannel = new ServerCommunicator();
+                
                 ArrayList ipOfServers = serverChannel.getServersOfCluster(ip); //获取在同一集群上的所有vdi的IP
                 //随机从ipOfServers中选取一个IP
                 Random random = new Random();
                 int randomIndex = random.Next(ipOfServers.Count);
                 String IPsel = (String)ipOfServers[randomIndex];
                 ArrayList domains = serverChannel.getDomains(IPsel);
-
+                //把光标样式改回arrow
+               // this.Cursor = Cursors.Arrow;
                 User userPage = new User(domains);
                 this.NavigationService.Navigate(userPage);
             }

@@ -1,0 +1,13 @@
+E:\study\VirtualDesktop\VDI\ServerChannel\bin\Debug\ServerChannel.exe
+E:\study\VirtualDesktop\VDI\ServerChannel\bin\Debug\ServerChannel.pdb
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\MainWindow.baml
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\MainWindow.g.cs
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\App.g.cs
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\ServerChannel_MarkupCompile.cache
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\ServerChannel.g.resources
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\ServerChannel.Properties.Resources.resources
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\ServerChannel.exe
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\ServerChannel.pdb

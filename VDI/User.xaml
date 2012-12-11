@@ -76,8 +76,8 @@
 
 
         			<Label Content="活动目录域" Grid.Row="2" Width="auto" HorizontalAlignment="Right" Height="28" Foreground="White" />
-                    <ComboBox x:Name="domainListBox" Loaded="comboBoxSizeType_Loaded" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 
-        				 SelectedValue="{Binding Path=Size, Mode=TwoWay}" Margin="0,7"/>
+                    <ComboBox x:Name="domainListBox" Loaded="domainListBox_Loaded" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 2" 
+        				 SelectedValue="{Binding Path=DomainNameList, Mode=TwoWay}" Margin="0,7" />
                     <!--<ComboBox x:Name="domainListBox" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 
         				ItemsSource="{Binding Source={StaticResource DomainDataSource}, XPath=Domain}"
         				ItemTemplate="{StaticResource nameItemTemplate}" Margin="0,7" />-->

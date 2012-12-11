@@ -14,7 +14,9 @@ namespace VDI
 {
 	public partial class User
 	{
-        public ArrayList domainList {get; set;}
+        private ArrayList DomainList {get; set;} //domainList每个元素是个string[2]数组，string[0]为domain name ,string[1]为domain id
+        public ArrayList DomainNameList { get; set; } //把DomainList的string[0]保存到此，绑定到combobox
+
 		public User()
 		{
 			this.InitializeComponent();
@@ -24,16 +26,22 @@ namespace VDI
         public User(ArrayList domains)
             : this()
         {
-            domainList = domains;
+            DomainNameList = new ArrayList();
+            DomainList = domains;
+            foreach (String[] domain in DomainList)
+            {
+                DomainNameList.Add(domain[0]);
+            }
             
         }
-        private void comboBoxSizeType_Loaded(object sender, RoutedEventArgs e)
+        private void domainListBox_Loaded(object sender, RoutedEventArgs e)
         {
             ComboBox box = sender as ComboBox;
-            box.ItemsSource = domainList.ToArray();
+            box.ItemsSource = DomainNameList;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             DesktopPools dpools = new DesktopPools();
             this.NavigationService.Navigate(dpools);
         }

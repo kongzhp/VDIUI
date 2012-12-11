@@ -10,20 +10,7 @@
 	Title="YZ_Home">
     <Page.Resources>
         <src:IpRule x:Key="iprule"/>
-        <Style x:Key="ipboxTemplate" TargetType="TextBox">
-            <Style.Triggers>
 
-                <Trigger Property="Validation.HasError" Value="true">
-                    
-                    <Setter Property="ToolTip"
-
-                            Value="{Binding RelativeSource={RelativeSource Self},Path=(Validation.Errors)[0].ErrorContent}"/>
-
-                </Trigger>
-
-            </Style.Triggers>
-
-        </Style>
         <Style x:Key="warningBoxStyle" TargetType="TextBlock">
             <Setter Property="Background" Value="White"/>
             <Setter Property="Opacity" Value="0.5" />
@@ -65,13 +52,39 @@
         	<StackPanel Height="47" Orientation="Horizontal" HorizontalAlignment="Center">
 
         		<TextBox x:Name="ipTextBox" Height="28.5" Width="270" Margin="0,0,6,0" Padding="1 3" TextWrapping="Wrap" 
-        			Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Center"  Style="{StaticResource ipboxTemplate}" >
+        			Opacity="0.7" HorizontalAlignment="Left" VerticalAlignment="Center"   >
         			<Binding Source="{StaticResource iprule}" Path="IP" UpdateSourceTrigger="PropertyChanged" Mode="Default">
         				<Binding.ValidationRules>
         					<src:IpRule/>
         				</Binding.ValidationRules>
         			</Binding>
-        		</TextBox>
+                    <TextBox.Resources>
+                        <VisualBrush x:Key="HelpBrush" Stretch="None" >
+                        	<VisualBrush.Visual>
+                        		 <TextBlock FontStyle="Italic" Text="请输入服务器IP" Padding="5" Background="White" Opacity="0.945" Width="270" Height="25.8"/>                	
+							</VisualBrush.Visual>                  
+						</VisualBrush>
+                    </TextBox.Resources>
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <Trigger Property="Validation.HasError" Value="true">
+
+                                    <Setter Property="ToolTip"
+
+                            Value="{Binding RelativeSource={RelativeSource Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="">
+                                    <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
         		<Button Style="{StaticResource SpecialButton}"  Click="Button_Click"/>
             
