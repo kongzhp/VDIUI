@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
 using ServerChannel;
+using System.Net;
 namespace VDI
 {
     /// <summary>
@@ -49,17 +50,34 @@ namespace VDI
                 //this.Visibility = System.Windows.Visibility.Hidden;
                 //this.Visibility = System.Windows.Visibility.Visible;
                 ServerCommunicator serverChannel = new ServerCommunicator();
-                
-                ArrayList ipOfServers = serverChannel.getServersOfCluster(ip); //获取在同一集群上的所有vdi的IP
-                //随机从ipOfServers中选取一个IP
-                Random random = new Random();
-                int randomIndex = random.Next(ipOfServers.Count);
-                String IPsel = (String)ipOfServers[randomIndex];
-                ArrayList domains = serverChannel.getDomains(IPsel);
-                //把光标样式改回arrow
-               // this.Cursor = Cursors.Arrow;
-                User userPage = new User(domains, IPsel);
-                this.NavigationService.Navigate(userPage);
+                try
+                {
+                    ArrayList ipOfServers = serverChannel.getServersOfCluster(ip); //获取在同一集群上的所有vdi的IP
+                    //随机从ipOfServers中选取一个IP
+                    Random random = new Random();
+                    int randomIndex = random.Next(ipOfServers.Count);
+                    String IPsel = (String)ipOfServers[randomIndex];
+                    ArrayList domains = serverChannel.getDomains(IPsel);
+                    //把光标样式改回arrow
+                    // this.Cursor = Cursors.Arrow;
+                    User userPage = new User(domains, IPsel);
+                    this.NavigationService.Navigate(userPage);
+                }
+                catch (WebException webex)
+                {
+                    String errorText = "连接超时，请确保服务器IP正确，或联系网络管理员";
+                    MessageBoxButton btn = MessageBoxButton.OK;
+                    MessageBoxImage img = MessageBoxImage.Error;
+                    MessageBox.Show(errorText, "网络异常", btn, img);
+                }
+                catch (Exception ex)
+                {
+                    String errorText = "程序错误，请重试";
+                    MessageBoxButton btn = MessageBoxButton.OK;
+                    MessageBoxImage img = MessageBoxImage.Error;
+                    MessageBox.Show(errorText, "程序异常", btn, img);
+                }
+
             }
         }
     }

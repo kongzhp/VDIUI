@@ -45,17 +45,33 @@ namespace VDI
             Mouse.SetCursor(Cursors.Wait);
             //获取用户名、密码、domain
             String userName = username.Text;
+            userName.Trim();
             String pwd = password.Password;
-
+            pwd.Trim();
             String domainID = (String)domainListBox.SelectedValue;
             String domainName = ((Domain)domainListBox.SelectedItem).Name;
-            ServerCommunicator serverChannel = new ServerCommunicator();
-            //向服务器请求pool列表
-            GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
-            UserID = res.getUserId();
-            Plist = res.getPoolList();
-            DesktopPools dpools = new DesktopPools(IP, UserID, userName, Plist, domainName);
-            this.NavigationService.Navigate(dpools);
+            //检查用户名、密码、域名是否为空
+            if (userName == " " || userName == null || userName == String.Empty)
+            {
+                warningBlock.Text = "* 用户名不能为空。";
+                warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+            }
+            else if (pwd == "" || pwd == null || pwd == String.Empty)
+            {
+                warningBlock.Text = "* 密码不能为空。";
+                warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+            }
+            else {
+                ServerCommunicator serverChannel = new ServerCommunicator();
+                //向服务器请求pool列表
+                GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
+                UserID = res.getUserId();
+                Plist = res.getPoolList();
+                DesktopPools dpools = new DesktopPools(IP, UserID, userName, Plist, domainName);
+                this.NavigationService.Navigate(dpools);            
+            }
+
+
         }
 	}
 }

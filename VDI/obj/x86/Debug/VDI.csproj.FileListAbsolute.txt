@@ -63,3 +63,8 @@ E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\VDI_MarkupCompile.lref
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\ServerChannel.exe
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\ServerChannel.pdb
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\MsTscAxWrapper.dll
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\RDPConnecter.exe
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\MsTscAxWrapper.pdb
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\RDPConnecter.pdb
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\MSTSCLib.dll

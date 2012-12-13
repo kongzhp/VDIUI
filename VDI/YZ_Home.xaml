@@ -10,14 +10,14 @@
 	Title="YZ_Home">
     <Page.Resources>
         <src:IpRule x:Key="iprule"/>
-
         <Style x:Key="warningBoxStyle" TargetType="TextBlock">
             <Setter Property="Background" Value="White"/>
             <Setter Property="Opacity" Value="0.5" />
             <Setter Property="Foreground" Value="#FFFF0909" />
             <Setter Property="Padding" Value="3 0 0 0 " />
-            
+
         </Style>
+
     </Page.Resources>
     <Grid Margin="0 0 0 0">
         <Grid.ColumnDefinitions>

@@ -10,13 +10,22 @@
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="450"
     Title="userPage" Width="Auto">
+    <Page.Resources>
+        <Style x:Key="warningBoxStyle" TargetType="TextBlock">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Foreground" Value="#FFFF0909" />
+            <Setter Property="Padding" Value="3 0 0 0 " />
+
+        </Style>
+    </Page.Resources>
     <Grid>
 
-        <!--<Grid.RowDefinitions>
+        <Grid.RowDefinitions>
         	<RowDefinition Height="0.14*"/>
             <RowDefinition Height="0.86*"/>
 
-        </Grid.RowDefinitions>-->
+        </Grid.RowDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="image/bg4.jpg"/>
         </Grid.Background>
@@ -34,8 +43,9 @@
                 </MenuItem>
             </Menu>
 		</DockPanel>-->
-        <StackPanel Margin="0" Grid.Row="0" Width="400" VerticalAlignment="Center">
-        	<Label Content="云晫科技" FontWeight="Bold" Width="101" FontSize="21.333" Background="#00F3EFEF" Foreground="White" BorderThickness="0" Height="39" HorizontalAlignment="Center" d:LayoutOverrides="Width" VerticalAlignment="Top" Margin="0,0,0,20" />
+        <Label Grid.Row="0" Content="云晫科技" FontWeight="Bold" Width="101" FontSize="21.333" Background="#00F3EFEF" Foreground="White" BorderThickness="0" Height="39" HorizontalAlignment="Center" d:LayoutOverrides="Width" VerticalAlignment="Bottom"  />
+        <StackPanel Margin="0" Grid.Row="1" Width="400" VerticalAlignment="Center">
+        	
         	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="#FF313131" Opacity="0.59" CornerRadius="10" Width="320" Height="186" HorizontalAlignment="Center" VerticalAlignment="Top">
         		<Grid Margin="0,15" >
         			<Grid.Resources>
@@ -87,8 +97,9 @@
         		</Grid>
         	</Border>
         </StackPanel>
-		<TextBlock Margin="0,0,0,5" VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center">
+		<TextBlock  VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center" Grid.Row="1">
         ©云晫科技，版权所有
 		</TextBlock>
+		<TextBlock x:Name="warningBlock" Height="29.5" Margin="65,24,67,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Page>

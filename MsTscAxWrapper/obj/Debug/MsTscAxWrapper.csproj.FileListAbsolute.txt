@@ -1,0 +1,12 @@
+D:\multirdpc-79962\MsTscAxWrapper\bin\Debug\MsTscAxWrapper.dll
+D:\multirdpc-79962\MsTscAxWrapper\bin\Debug\MsTscAxWrapper.pdb
+D:\multirdpc-79962\MsTscAxWrapper\bin\Debug\MSTSCLib.dll
+D:\multirdpc-79962\MsTscAxWrapper\obj\Debug\ResolveAssemblyReference.cache
+D:\multirdpc-79962\MsTscAxWrapper\obj\Debug\MsTscAxWrapper.dll
+D:\multirdpc-79962\MsTscAxWrapper\obj\Debug\MsTscAxWrapper.pdb
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\bin\Debug\MsTscAxWrapper.dll
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\bin\Debug\MsTscAxWrapper.pdb
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\bin\Debug\MSTSCLib.dll
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\obj\Debug\ResolveAssemblyReference.cache
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\obj\Debug\MsTscAxWrapper.dll
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\obj\Debug\MsTscAxWrapper.pdb

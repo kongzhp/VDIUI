@@ -1,0 +1,26 @@
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\RDPConnecter.Properties.Resources.resources
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\bin\Debug\RDPConnecter.exe
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\bin\Debug\RDPConnecter.pdb
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\bin\Debug\MsTscAxWrapper.dll
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\bin\Debug\MsTscAxWrapper.pdb
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\RDPConnecter.exe
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\RDPConnecter.pdb
+c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\bin\Debug\MSTSCLib.dll
+C:\Users\Michael\documents\visual studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\RDPConnecter.RemoteDesktopWindow.resources
+C:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\RDPConnecter.RDPConnecter.resources
+E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\RDPConnecter.exe
+E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\RDPConnecter.pdb
+E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\MsTscAxWrapper.dll
+E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\MsTscAxWrapper.pdb
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\RDPConnecter.RDPConnecter.resources
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\RDPConnecter.RemoteDesktopWindow.resources
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\RDPConnecter.Properties.Resources.resources
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\RDPConnecter.exe
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\RDPConnecter.pdb

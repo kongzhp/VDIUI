@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
 using ServerChannel;
+using RDPConnecter;
 namespace VDI
 {
     /// <summary>
@@ -47,6 +48,18 @@ namespace VDI
             ServerCommunicator serverChannel = new ServerCommunicator();
             String displayMode = (String)((ComboBoxItem)displayComboBox.SelectedValue).Content;
             Pool poolSel = (Pool)poolListBox.SelectedItem;
+            String server = "222.200.185.55";
+            int port = 8007;
+            String username = "kongzhp";
+            String password = "admin123";
+            int width = 1024;
+            int height = 800;
+            bool fullScreen = true;
+            RemoteDesktopWindow rdw = new RemoteDesktopWindow(server, port, username, password, width, height, fullScreen);
+            rdw.Show();
+            rdw.BringToFront();
+
+
         }
     }
     
