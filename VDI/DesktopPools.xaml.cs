@@ -23,17 +23,30 @@ namespace VDI
         public ArrayList PList { get; set; }
         public String UserID { get; set; }
         public String UserName { get; set; }
+        public String IP { get; set; }
+        public String DomainName { get; set; }
         public DesktopPools()
         {
             
             InitializeComponent();
         }
-        public DesktopPools(String userID, String userName , PoolList pList)
+        public DesktopPools(String ip, String userID, String userName , PoolList pList, String domainName)
             : this()
         {
             UserID = userID;
             UserName = userName;
             PList = pList.getPools();
+            userLabel.Content = userName;
+            DomainName = domainName;
+            poolListBox.ItemsSource = PList;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ServerCommunicator serverChannel = new ServerCommunicator();
+            String displayMode = (String)((ComboBoxItem)displayComboBox.SelectedValue).Content;
+            Pool poolSel = (Pool)poolListBox.SelectedItem;
         }
     }
     

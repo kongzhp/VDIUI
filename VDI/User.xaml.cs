@@ -16,7 +16,7 @@ namespace VDI
 	public partial class User
 	{
         private ArrayList DomainList {get; set;} //domainList每个元素是Domains对象
-        public ArrayList DomainNameList { get; set; } //把DomainList的string[0]保存到此，绑定到combobox
+       // public ArrayList DomainNameList { get; set; } //把DomainList的string[0]保存到此，绑定到combobox
         public PoolList Plist { get; set; } //桌面池
         public String UserID { get; set; }         //用户ID
         public String IP { get; set; }             //服务器IP
@@ -47,14 +47,14 @@ namespace VDI
             String userName = username.Text;
             String pwd = password.Password;
 
-            String domainID = domainListBox.SelectedValuePath;
-            
+            String domainID = (String)domainListBox.SelectedValue;
+            String domainName = ((Domain)domainListBox.SelectedItem).Name;
             ServerCommunicator serverChannel = new ServerCommunicator();
             //向服务器请求pool列表
             GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
             UserID = res.getUserId();
             Plist = res.getPoolList();
-            DesktopPools dpools = new DesktopPools();
+            DesktopPools dpools = new DesktopPools(IP, UserID, userName, Plist, domainName);
             this.NavigationService.Navigate(dpools);
         }
 	}

@@ -19,6 +19,38 @@ namespace ServerChannel
         private string name;
         private bool ready;
 
+        public String Name { 
+            get
+            {
+                return name; 
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public String Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
+        public Boolean Ready
+        {
+            get
+            {
+                return ready;
+            }
+            set
+            {
+                ready = value;
+            }
+        }
         public Pool()
         {
             id = name = "";
