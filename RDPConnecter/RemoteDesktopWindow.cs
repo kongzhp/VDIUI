@@ -11,13 +11,14 @@ namespace RDPConnecter
 {
     public partial class RemoteDesktopWindow : Form
     {
-        public RemoteDesktopWindow(string server, int port, string username, string password, int width, int height,
+        public RemoteDesktopWindow(string title, string server, int port, string username, string password, int width, int height,
             bool fullScreen)
         {
             InitializeComponent();
             InitializeControlEvents();
             setRemoteDesktop(server, port, username, password, width, height, fullScreen);
-            this.Text = username + "@" + server + ":" + port;
+            this.Text = title;
+            
             rdpClient.Connect();
         }
 
@@ -68,15 +69,17 @@ namespace RDPConnecter
         public void InitializeControlEvents()
         {
             this.FormClosing += new FormClosingEventHandler(RdpClientWindow_FormClosing);
+            this.rdpClient.OnDisconnected += new AxMSTSCLib.IMsTscAxEvents_OnDisconnectedEventHandler(rdpClient_OnDisconnected);
         }
 
         void RdpClientWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you want to close this window?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult dr = MessageBox.Show("确定要断开连接并关闭窗口？", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dr == DialogResult.Yes)
             {
-                rdpClient.Disconnect();
+                if (rdpClient.Connected == 1)
+                    rdpClient.Disconnect();
                 rdpClient.Dispose();
                 Dispose();
             }
@@ -84,6 +87,12 @@ namespace RDPConnecter
             {
                 e.Cancel = true;
             }
+        }
+
+        void rdpClient_OnDisconnected(object sender, AxMSTSCLib.IMsTscAxEvents_OnDisconnectedEvent e)
+        {
+            rdpClient.Dispose();
+            Dispose();
         }
     }
 }

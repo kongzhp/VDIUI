@@ -5,15 +5,18 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Collections;
 using System.Windows.Forms;
 
 namespace RDPConnecter
 {
     public partial class RDPConnecter : Form
     {
+        private ArrayList f = new ArrayList();
         public RDPConnecter()
         {
             InitializeComponent();
+            
         }
 
         private void connect_Click(object sender, EventArgs e)
@@ -30,9 +33,25 @@ namespace RDPConnecter
                 width = Int32.Parse(widthText.Text);
                 height = Int32.Parse(heightText.Text);
             }
-            RemoteDesktopWindow rdw = new RemoteDesktopWindow(server, port, username, password, width, height, fullScreen);
-            rdw.Show();
-            rdw.BringToFront();
+            string formTitlePattern = "云晫 - {0}@{1}[{2}]";
+            string formTitle = string.Format(formTitlePattern, username, "pool1", server);
+            bool canCreateNewForm = true;
+            foreach (Form ff in f)
+            {
+                if (ff != null && ff.Text == formTitle)
+                {
+                    ff.Activate();
+                    canCreateNewForm = false;
+                    break;
+                }
+            }
+            if (canCreateNewForm)
+            {
+                RemoteDesktopWindow rdw = new RemoteDesktopWindow(formTitle, server, port, username, password, width, height, fullScreen);
+                rdw.Show();
+                rdw.BringToFront();
+                f.Add(rdw);
+            }
         }
     }
 }

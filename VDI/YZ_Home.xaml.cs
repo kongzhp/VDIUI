@@ -60,7 +60,7 @@ namespace VDI
                     ArrayList domains = serverChannel.getDomains(IPsel);
                     //把光标样式改回arrow
                     // this.Cursor = Cursors.Arrow;
-                    User userPage = new User(domains, "192.168.0.63");
+                    User userPage = new User(domains, IPsel);
                     this.NavigationService.Navigate(userPage);
                 }
                 catch (WebException webex)

@@ -29,15 +29,16 @@
                 <Grid Height="50" Width="350">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="77"/>
+                        <ColumnDefinition Width="46"/>
+                        <ColumnDefinition Width="109"/>
+						<ColumnDefinition Width="18" />
                     </Grid.ColumnDefinitions>
                     <Image Source="image/DesktopReady.png" Grid.Column="0" Name="desktopPic"/>
                     <Label Margin="5" Grid.Column="1" Content="{Binding Path=Name}"/>
                     <Label Margin="5" Grid.Column="2" Content="状态:"/>
                     <Label Margin="0,5" Grid.Column="3" Content="准备" Name="desktopStatus"/>
-
+					<MediaElement Grid.Column="4" Source="image/loading.gif" Visibility="Hidden" Name="loadingGIF"/>
                 </Grid>
                 <DataTemplate.Triggers>
                     <DataTrigger Binding="{Binding Path=Ready}">
@@ -104,9 +105,8 @@
         	</StackPanel>
         	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="White" Opacity="0.635" CornerRadius="10" Width="378" Height="205">
                 <StackPanel VerticalAlignment="Top">
-        			<TextBlock x:Name="statusBlock" Height="21" Margin="8,4,155,0" TextWrapping="Wrap"/>
 
-        			<ListBox x:Name="poolListBox" ItemTemplate="{StaticResource poolsListItemTemplate}" VerticalAlignment="Top" BorderThickness="0" Margin="1,2,0,0" Height="169" Width="378"/>
+        			<ListBox x:Name="poolListBox" ItemTemplate="{StaticResource poolsListItemTemplate}" VerticalAlignment="Top" BorderThickness="0" Margin="1,17,0,0" Height="169" Width="378"/>
 
         		</StackPanel>
 

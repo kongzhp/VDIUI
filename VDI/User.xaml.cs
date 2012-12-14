@@ -102,7 +102,7 @@ namespace VDI
 
                         UserID = res.getUserId();
                         Plist = res.getPoolList();
-                        DesktopPools dpools = new DesktopPools(IP, UserID, userName, Plist, domainName);
+                        DesktopPools dpools = new DesktopPools(IP, UserID, userName,pwd, Plist, domainName);
                         this.NavigationService.Navigate(dpools);
                     }
                 }
