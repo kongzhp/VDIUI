@@ -37,7 +37,22 @@ namespace VDI
         private void domainListBox_Loaded(object sender, RoutedEventArgs e)
         {
             ComboBox box = sender as ComboBox;
-            box.ItemsSource = DomainList;   
+            box.ItemsSource = DomainList;
+            
+        }
+        private void TextBoxItem_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox box = sender as TextBox;
+            box.BorderBrush = Brushes.White;
+            box.BorderThickness = new Thickness(1.0);
+       
+        }
+        private void ComboBoxItem_LostFocus(object sender, RoutedEventArgs e)
+        {
+            ComboBox box = sender as ComboBox;
+            box.BorderBrush = Brushes.White;
+            box.BorderThickness = new Thickness(1.0);
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -49,26 +64,55 @@ namespace VDI
             String pwd = password.Password;
             pwd.Trim();
             String domainID = (String)domainListBox.SelectedValue;
-            String domainName = ((Domain)domainListBox.SelectedItem).Name;
+            
             //检查用户名、密码、域名是否为空
-            if (userName == " " || userName == null || userName == String.Empty)
+            if (userName == "" || userName == null || userName == String.Empty)
             {
                 warningBlock.Text = "* 用户名不能为空。";
                 warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+                username.Style = (Style)this.Resources["boxHightlight"];
             }
             else if (pwd == "" || pwd == null || pwd == String.Empty)
             {
                 warningBlock.Text = "* 密码不能为空。";
                 warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+                password.Style = (Style)this.Resources["boxHightlight"];
             }
-            else {
+            else if (domainListBox.SelectedItem == null)
+            {
+                warningBlock.Text = "* 请选择活动目录域。";
+                warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+                domainListBox.Style = (Style)this.Resources["comboboxHightlight"];
+            }
+            else
+            {
+                String domainName = ((Domain)domainListBox.SelectedItem).Name;
                 ServerCommunicator serverChannel = new ServerCommunicator();
                 //向服务器请求pool列表
-                GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
-                UserID = res.getUserId();
-                Plist = res.getPoolList();
-                DesktopPools dpools = new DesktopPools(IP, UserID, userName, Plist, domainName);
-                this.NavigationService.Navigate(dpools);            
+                try
+                {
+                    GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
+                    if (res == null)
+                    {
+                        warningBlock.Text = "* 账号或密码错误。";
+                        warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+                    }
+                    else
+                    {
+
+                        UserID = res.getUserId();
+                        Plist = res.getPoolList();
+                        DesktopPools dpools = new DesktopPools(IP, UserID, userName, Plist, domainName);
+                        this.NavigationService.Navigate(dpools);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    String errorText = "连接超时，请确保服务器IP正确，或联系网络管理员";
+                    MessageBoxButton btn = MessageBoxButton.OK;
+                    MessageBoxImage img = MessageBoxImage.Error;
+                    MessageBox.Show(errorText, "网络异常", btn, img);
+                }
             }
 
 

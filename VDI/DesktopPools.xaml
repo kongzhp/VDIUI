@@ -103,7 +103,12 @@
         		</StackPanel>
         	</StackPanel>
         	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="White" Opacity="0.635" CornerRadius="10" Width="378" Height="205">
-                <ListBox Name="poolListBox" ItemTemplate="{StaticResource poolsListItemTemplate}" VerticalAlignment="Top" BorderThickness="0" Margin="1,5,1,0" Height="188"/>
+                <StackPanel VerticalAlignment="Top">
+        			<TextBlock x:Name="statusBlock" Height="21" Margin="8,4,155,0" TextWrapping="Wrap"/>
+
+        			<ListBox x:Name="poolListBox" ItemTemplate="{StaticResource poolsListItemTemplate}" VerticalAlignment="Top" BorderThickness="0" Margin="1,2,0,0" Height="169" Width="378"/>
+
+        		</StackPanel>
 
         	</Border>
         	<Button Content="连接" HorizontalAlignment="Right" Height="26" Margin="0,10,0,0" Width="96.5" Opacity="0.745" Click="Button_Click" />

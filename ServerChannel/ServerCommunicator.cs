@@ -294,16 +294,16 @@ namespace ServerChannel
                 throw;
             }
 
-            string[] ss = s.Split('\n');
-            if (ss.Length == 0)
+            if (s.Equals(""))
                 return "not ready";
-            else if (ss.Length == 1)
+            else if (s.Contains("error"))
                 return null;
 
+            string[] ss = s.Split('\n');
             string[] sss1 = ss[0].Split('=');
             string[] sss2 = ss[1].Split('=');
             if (sss1.Length < 2 || sss2.Length < 2)
-                return "";
+                return null;
             return sss1[1] + ":" + sss2[1];
         }
     }

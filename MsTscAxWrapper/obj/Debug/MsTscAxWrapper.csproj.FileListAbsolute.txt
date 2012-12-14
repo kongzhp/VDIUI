@@ -10,3 +10,9 @@ c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapp
 c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\obj\Debug\ResolveAssemblyReference.cache
 c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\obj\Debug\MsTscAxWrapper.dll
 c:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\MsTscAxWrapper\obj\Debug\MsTscAxWrapper.pdb
+E:\study\VirtualDesktop\VDI\MsTscAxWrapper\bin\Debug\MsTscAxWrapper.dll
+E:\study\VirtualDesktop\VDI\MsTscAxWrapper\bin\Debug\MsTscAxWrapper.pdb
+E:\study\VirtualDesktop\VDI\MsTscAxWrapper\bin\Debug\MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\MsTscAxWrapper\obj\Debug\ResolveAssemblyReference.cache
+E:\study\VirtualDesktop\VDI\MsTscAxWrapper\obj\Debug\MsTscAxWrapper.dll
+E:\study\VirtualDesktop\VDI\MsTscAxWrapper\obj\Debug\MsTscAxWrapper.pdb

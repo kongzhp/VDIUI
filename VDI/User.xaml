@@ -18,6 +18,32 @@
             <Setter Property="Padding" Value="3 0 0 0 " />
 
         </Style>
+		<Style x:Key="boxHightlight" TargetType="TextBox">
+            <EventSetter Event="LostFocus" Handler="TextBoxItem_LostFocus"/>            
+			<Setter Property="BorderBrush" Value="#FFFB0202" />
+			<Setter Property="BorderThickness" Value="2" />
+           
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#FFE3E9EF" />
+                    <Setter Property="BorderThickness" Value="1" />
+                </Trigger>
+
+            </Style.Triggers>
+		</Style>
+        <Style x:Key="comboboxHightlight" TargetType="ComboBox">
+            <EventSetter Event="LostFocus" Handler="ComboBoxItem_LostFocus"/>
+            <Setter Property="BorderBrush" Value="#FFFB0202" />
+            <Setter Property="BorderThickness" Value="2" />
+
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#FFE3E9EF" />
+                    <Setter Property="BorderThickness" Value="1" />
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
     </Page.Resources>
     <Grid>
 
@@ -45,8 +71,10 @@
 		</DockPanel>-->
         <Label Grid.Row="0" Content="云晫科技" FontWeight="Bold" Width="101" FontSize="21.333" Background="#00F3EFEF" Foreground="White" BorderThickness="0" Height="39" HorizontalAlignment="Center" d:LayoutOverrides="Width" VerticalAlignment="Bottom"  />
         <StackPanel Margin="0" Grid.Row="1" Width="400" VerticalAlignment="Center">
-        	
-        	<Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="#FF313131" Opacity="0.59" CornerRadius="10" Width="320" Height="186" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+            <TextBlock x:Name="warningBlock" Height="21" Margin="0,0,0,5" TextWrapping="Wrap" HorizontalAlignment="Center" Width="320"/>
+
+            <Border BorderBrush="Black" BorderThickness="0" Margin="0" Background="#FF313131" Opacity="0.59" CornerRadius="10" Width="320" Height="186" HorizontalAlignment="Center" VerticalAlignment="Top">
         		<Grid Margin="0,15" >
         			<Grid.Resources>
 
@@ -80,15 +108,15 @@
 
 
         			<Label Content="用户名" Grid.Row="0" Grid.Column="0" Width="auto"  HorizontalAlignment="Right" Height="28" Foreground="#FFFDF9F9" />
-        			<TextBox Name="username" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,9" />
+        			<TextBox x:Name="username" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,9" Padding="0"/>
 
         			<Label Content="密 码" Grid.Row="1" Grid.Column="0" Width="auto"  HorizontalAlignment="Right" Height="28" Foreground="#FFFFFDFD" />
-        			<PasswordBox Name="password" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,10" />
+        			<PasswordBox x:Name="password" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="179" Opacity="0.8" Margin="0,10" />
 
 
         			<Label Content="活动目录域" Grid.Row="2" Width="auto" HorizontalAlignment="Right" Height="28" Foreground="White" />
                     <ComboBox x:Name="domainListBox" Loaded="domainListBox_Loaded" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 2" 
-        				 SelectedValue="{Binding Path=DomainList, Mode=TwoWay}"
+        				 SelectedValue="{Binding DomainList, Mode=TwoWay}"
                          SelectedValuePath="Id" DisplayMemberPath="Name" Margin="0,7" />
                     <!--<ComboBox x:Name="domainListBox" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 
         				ItemsSource="{Binding Source={StaticResource DomainDataSource}, XPath=Domain}"
@@ -100,6 +128,5 @@
 		<TextBlock  VerticalAlignment="Bottom" FontSize="9.333" Foreground="White" HorizontalAlignment="Center" Grid.Row="1">
         ©云晫科技，版权所有
 		</TextBlock>
-		<TextBlock x:Name="warningBlock" Height="29.5" Margin="65,24,67,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Page>
