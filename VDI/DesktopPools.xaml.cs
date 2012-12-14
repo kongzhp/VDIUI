@@ -90,7 +90,7 @@ namespace VDI
                                 System.Windows.Controls.Label statLabel = 
                                     (System.Windows.Controls.Label)myDataTemplate.FindName("desktopStatus", myContentPresenter);
                                 statLabel.Content = statusString;
-                                MediaElement imageICON = (MediaElement)myDataTemplate.FindName("loadingGIF", myContentPresenter);
+                                Image imageICON = (Image)myDataTemplate.FindName("loadingGIF", myContentPresenter);
                                 if (loading)
                                     imageICON.Visibility = Visibility.Visible;
                                 else

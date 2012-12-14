@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ServerChannel;assembly=ServerChannel"
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="450"
 	Title="DesktopPools">
@@ -38,7 +39,7 @@
                     <Label Margin="5" Grid.Column="1" Content="{Binding Path=Name}"/>
                     <Label Margin="5" Grid.Column="2" Content="状态:"/>
                     <Label Margin="0,5" Grid.Column="3" Content="准备" Name="desktopStatus"/>
-					<MediaElement Grid.Column="4" Source="image/loading.gif" Visibility="Hidden" Name="loadingGIF"/>
+                    <Image Grid.Column="4" gif:ImageBehavior.AnimatedSource="image/loading.gif" Visibility="Hidden" Name="loadingGIF"/>
                 </Grid>
                 <DataTemplate.Triggers>
                     <DataTrigger Binding="{Binding Path=Ready}">

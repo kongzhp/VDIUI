@@ -30,6 +30,7 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
+using WpfAnimatedGif;
 
 
 namespace VDI {
@@ -42,7 +43,7 @@ namespace VDI {
     public partial class DesktopPools : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
-        #line 84 "..\..\..\DesktopPools.xaml"
+        #line 85 "..\..\..\DesktopPools.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label userLabel;
         
@@ -50,7 +51,7 @@ namespace VDI {
         #line hidden
         
         
-        #line 89 "..\..\..\DesktopPools.xaml"
+        #line 90 "..\..\..\DesktopPools.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox displayComboBox;
         
@@ -58,7 +59,7 @@ namespace VDI {
         #line hidden
         
         
-        #line 109 "..\..\..\DesktopPools.xaml"
+        #line 110 "..\..\..\DesktopPools.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListBox poolListBox;
         
@@ -104,7 +105,7 @@ namespace VDI {
             return;
             case 4:
             
-            #line 114 "..\..\..\DesktopPools.xaml"
+            #line 115 "..\..\..\DesktopPools.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
             
             #line default
