@@ -101,9 +101,17 @@ namespace VDI
                     {
 
                         UserID = res.getUserId();
-                        Plist = res.getPoolList();
-                        DesktopPools dpools = new DesktopPools(IP, UserID, userName,pwd, Plist, domainName);
-                        this.NavigationService.Navigate(dpools);
+                        if (UserID.Contains("incorrect"))
+                        {
+                            warningBlock.Text = "* 账号或密码错误。";
+                            warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+                        }
+                        else
+                        {
+                            Plist = res.getPoolList();
+                            DesktopPools dpools = new DesktopPools(IP, UserID, userName, pwd, Plist, domainName);
+                            this.NavigationService.Navigate(dpools);
+                        }
                     }
                 }
                 catch (Exception ex)

@@ -32,14 +32,14 @@
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="77"/>
                         <ColumnDefinition Width="46"/>
-                        <ColumnDefinition Width="109"/>
-						<ColumnDefinition Width="18" />
+                        <ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
                     <Image Source="image/DesktopReady.png" Grid.Column="0" Name="desktopPic"/>
                     <Label Margin="5" Grid.Column="1" Content="{Binding Path=Name}"/>
                     <Label Margin="5" Grid.Column="2" Content="状态:"/>
                     <Label Margin="0,5" Grid.Column="3" Content="准备" Name="desktopStatus"/>
-                    <Image Grid.Column="4" gif:ImageBehavior.AnimatedSource="image/loading.gif" Visibility="Hidden" Name="loadingGIF"/>
+                    <Image Margin="2,10" Grid.Column="4" VerticalAlignment="Top" Height="16" Width="16" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="image/loading.gif"  Name="loadingGIF"/>
                 </Grid>
                 <DataTemplate.Triggers>
                     <DataTrigger Binding="{Binding Path=Ready}">

@@ -63,20 +63,14 @@ namespace VDI
                     User userPage = new User(domains, IPsel);
                     this.NavigationService.Navigate(userPage);
                 }
-                catch (WebException webex)
+                catch (Exception webex)
                 {
                     String errorText = "连接超时，请确保服务器IP正确，或联系网络管理员";
                     MessageBoxButton btn = MessageBoxButton.OK;
                     MessageBoxImage img = MessageBoxImage.Error;
                     MessageBox.Show(errorText, "网络异常", btn, img);
                 }
-                catch (Exception ex)
-                {
-                    String errorText = "程序错误，请重试";
-                    MessageBoxButton btn = MessageBoxButton.OK;
-                    MessageBoxImage img = MessageBoxImage.Error;
-                    MessageBox.Show(errorText, "程序异常", btn, img);
-                }
+
 
             }
         }

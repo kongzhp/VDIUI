@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-I:\study\Master_Paper\VDI2\VDIUI\ServerChannel\obj\x86\Debug\
+E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\
 ServerChannel
 none
 false
 DEBUG;TRACE
-I:\study\Master_Paper\VDI2\VDIUI\ServerChannel\App.xaml
+E:\study\VirtualDesktop\VDI\ServerChannel\App.xaml
 11151548125
 
-1197717378
-12-1381780322
+11653678818
+12-1547151337
 MainWindow.xaml;
 
 False

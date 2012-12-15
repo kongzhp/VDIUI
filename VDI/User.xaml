@@ -12,10 +12,11 @@
     Title="userPage" Width="Auto">
     <Page.Resources>
         <Style x:Key="warningBoxStyle" TargetType="TextBlock">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Opacity" Value="0.5" />
-            <Setter Property="Foreground" Value="#FFFF0909" />
+            <!--<Setter Property="Background" Value="#FF313131"/>-->
+            <!--<Setter Property="Opacity" Value="0.6" />-->
+            <Setter Property="Foreground" Value="#FFFFFFFF" />
             <Setter Property="Padding" Value="3 0 0 0 " />
+            <Setter Property="FontWeight" Value="Black" />
 
         </Style>
 		<Style x:Key="boxHightlight" TargetType="TextBox">

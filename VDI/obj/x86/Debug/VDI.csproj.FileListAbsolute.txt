@@ -68,3 +68,5 @@ E:\study\VirtualDesktop\VDI\VDI\bin\Debug\RDPConnecter.exe
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\MsTscAxWrapper.pdb
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\RDPConnecter.pdb
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\WpfAnimatedGif.dll
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\WpfAnimatedGif.xml
