@@ -8,55 +8,42 @@
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="450"
 	Title="DesktopPools">
-    
+    <Page.Resources>
+
+        <!-- ListBox item template, display the pools info -->
+        <DataTemplate x:Key="poolsListItemTemplate" DataType="{x:Type local:Pool}">
+            <Grid Height="50" Width="350">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="77"/>
+                    <ColumnDefinition Width="46"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Image Source="image/DesktopReady.png" Grid.Column="0" Name="desktopPic"/>
+                <Label Margin="5" Grid.Column="1" Content="{Binding Path=Name}"/>
+                <Label Margin="5" Grid.Column="2" Content="状态:"/>
+                <Label Margin="0,5" Grid.Column="3" Content="准备" Name="desktopStatus"/>
+                <Image Margin="2,10" Grid.Column="4" VerticalAlignment="Top" Height="16" Width="16" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="image/loading.gif"  Name="loadingGIF"/>
+            </Grid>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=Ready}">
+                    <DataTrigger.Value>False</DataTrigger.Value>
+                    <Setter Property="Image.Source" TargetName="desktopPic" Value="image/DesktopNReady.png"/>
+                    <Setter Property="Label.Content" TargetName="desktopStatus" Value="准备中" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <Style TargetType="ListBoxItem">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFA0C4FC"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <Grid.Resources>
 
-            <!-- stub ,just for binding pool list -->
-            <XmlDataProvider x:Key="PoolDataSource" XPath="Pools">
-                <x:XData>
-                    <Pools xmlns="">
-                        <Pool Name="Pool-1" DoolID="abcde" Ready="1"/>
-                        <Pool Name="Pool-2" DoolID="abcdf" Ready="0"/>
-                        <Pool Name="Pool-3" DoolID="abcdg" Ready="1"/>
-                        <Pool Name="Pool-4" DoolID="abcdg" Ready="0"/>
-                        <Pool Name="Pool-3" DoolID="abcdg" Ready="1"/>
-                    </Pools>
-                </x:XData>
-            </XmlDataProvider>
-
-            <!-- ListBox item template, display the pools info -->
-            <DataTemplate x:Key="poolsListItemTemplate" DataType="{x:Type local:Pool}">
-                <Grid Height="50" Width="350">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="77"/>
-                        <ColumnDefinition Width="46"/>
-                        <ColumnDefinition Width="auto"/>
-						<ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-                    <Image Source="image/DesktopReady.png" Grid.Column="0" Name="desktopPic"/>
-                    <Label Margin="5" Grid.Column="1" Content="{Binding Path=Name}"/>
-                    <Label Margin="5" Grid.Column="2" Content="状态:"/>
-                    <Label Margin="0,5" Grid.Column="3" Content="准备" Name="desktopStatus"/>
-                    <Image Margin="2,10" Grid.Column="4" VerticalAlignment="Top" Height="16" Width="16" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="image/loading.gif"  Name="loadingGIF"/>
-                </Grid>
-                <DataTemplate.Triggers>
-                    <DataTrigger Binding="{Binding Path=Ready}">
-                        <DataTrigger.Value>False</DataTrigger.Value>
-                        <Setter Property="Image.Source" TargetName="desktopPic" Value="image/DesktopNReady.png"/>
-                        <Setter Property="Label.Content" TargetName="desktopStatus" Value="准备中" />
-                    </DataTrigger>
-                </DataTemplate.Triggers>
-            </DataTemplate>
-            <Style TargetType="ListBoxItem">
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#FFA0C4FC"/>
-                    </Trigger>  
-                </Style.Triggers>
-            </Style>
-        </Grid.Resources>
         <!--<Grid.RowDefinitions>
             <RowDefinition Height="0.14*"/>
             <RowDefinition Height="0.86*"/>

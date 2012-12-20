@@ -74,5 +74,13 @@ namespace VDI
 
             }
         }
+
+        private void ipTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                Button_Click(sender, e);
+            }
+        }
     }
 }
