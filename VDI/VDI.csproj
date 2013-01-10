@@ -66,10 +66,6 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MSTSCLib">
-      <HintPath>..\MsTscAxWrapper\MSTSCLib.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -178,10 +174,6 @@
     <Resource Include="image\DesktopNReady.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MsTscAxWrapper\MsTscAxWrapper.csproj">
-      <Project>{8BC7615E-8138-4D3F-B376-3DBECC589E87}</Project>
-      <Name>MsTscAxWrapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RDPConnecter\RDPConnecter.csproj">
       <Project>{7471E83E-B7FB-45B6-9654-7FAECC390B36}</Project>
       <Name>RDPConnecter</Name>
@@ -215,6 +207,17 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSTSCLib">
+      <Guid>{8C11EFA1-92C3-11D1-BC1E-00C04FA31489}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

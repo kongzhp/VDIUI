@@ -17,6 +17,8 @@ using ServerChannel;
 using RDPConnecter;
 using System.Windows.Threading;
 using System.Threading;
+using MSTSCLib;
+
 namespace VDI
 {
     /// <summary>
@@ -35,6 +37,7 @@ namespace VDI
         private ComboBoxItem pixelItem;
         private string pixel;
         private string poolname;
+        private Gateway gw;
         public delegate void desktopStatDelegate();
         private ServerCommunicator serverChannel;
         private ArrayList rdpWinList = new ArrayList();
@@ -143,6 +146,9 @@ namespace VDI
                                         string formTitlePattern = "云晫 - {0}@{1}";
                                         string formTitle = string.Format(formTitlePattern, UserName, poolname);                                      
                                         RemoteDesktopWindow rdw = new RemoteDesktopWindow(formTitle, ip, port, UserName, Password, width, height, fullScreen);
+                                        if (null != gw)
+                                            rdw.setRDGW(gw.getAddress(), gw.getUsername(), gw.getPassword());
+                                        rdw.connect();
                                         rdw.Show();
                                         rdw.BringToFront();
                                         rdpWinList.Add(rdw);
@@ -160,6 +166,14 @@ namespace VDI
             String displayMode = (String)((ComboBoxItem)displayComboBox.SelectedValue).Content;
             Pool poolSel = (Pool)poolListBox.SelectedItem;
             poolname = poolSel.Name;
+            ArrayList gateways = poolSel.getGateways();
+            gw = null;
+            if (null != gateways && gateways.Count > 0)
+            {
+                Random random = new Random();
+                int randomIndex = random.Next(gateways.Count);
+                gw = (Gateway)gateways[randomIndex];
+            }
             Mouse.SetCursor(System.Windows.Input.Cursors.Wait); //把鼠标设置为等待状态
             RequestID = null;
 

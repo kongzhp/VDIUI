@@ -8,6 +8,7 @@
  **********************************************************/
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 
@@ -18,6 +19,7 @@ namespace ServerChannel
         private string id;
         private string name;
         private bool ready;
+        private ArrayList gateways; // 网关信息，如果为null则没有配置网关
 
         public String Name { 
             get
@@ -51,17 +53,20 @@ namespace ServerChannel
                 ready = value;
             }
         }
+
         public Pool()
         {
             id = name = "";
             ready = false;
+            gateways = null;
         }
 
-        public Pool(string id, string name, bool ready)
+        public Pool(string id, string name, bool ready, ArrayList gateways)
         {
             this.id = id;
             this.name = name;
             this.ready = ready;
+            this.gateways = gateways;
         }
 
         public string getId()
@@ -79,6 +84,11 @@ namespace ServerChannel
             return ready;
         }
 
+        public ArrayList getGateways()
+        {
+            return gateways;
+        }
+
         public void setId(string id)
         {
             this.id = id;
@@ -92,6 +102,11 @@ namespace ServerChannel
         public void setStatus(bool ready)
         {
             this.ready = ready;
+        }
+
+        public void setGateways(ArrayList gateways)
+        {
+            this.gateways = gateways;
         }
     }
 }

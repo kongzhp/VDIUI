@@ -14,16 +14,16 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          UAC Manifest Options
-          If you want to change the Windows User Account Control level replace the 
-          requestedExecutionLevel node with one of the following.
+          UAC 清单选项
+          如果要更改 Windows 用户帐户控制级别，请用以下节点之一替换
+          requestedExecutionLevel 节点。
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         If you want to utilize File and Registry Virtualization for backward 
-         compatibility then delete the requestedExecutionLevel node.
+          如果要利用文件和注册表虚拟化提供
+          向后兼容性，请删除 requestedExecutionLevel 节点。
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -42,62 +42,62 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MsTscAxWrapper.dll" size="40960">
-      <assemblyIdentity name="MsTscAxWrapper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.MSTSCLib.dll" size="209920">
+      <assemblyIdentity name="AxInterop.MSTSCLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>BtmyMWVjiEuKt0gPGiFO5NvR6Lg=</dsig:DigestValue>
+        <dsig:DigestValue>Jk3F/iGDQdORQmv9FQ63kANN3wo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MSTSCLib.dll" size="81920">
-      <assemblyIdentity name="MSTSCLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.MSTSCLib.dll" size="360960">
+      <assemblyIdentity name="Interop.MSTSCLib" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>IlDduLRma1YTdJoqZdJ3n37IeE0=</dsig:DigestValue>
+        <dsig:DigestValue>x3/HdH+hH5tuftsMS2ynvl7pIKM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RDPConnecter.exe" size="14848">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RDPConnecter.exe" size="19456">
       <assemblyIdentity name="RDPConnecter" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>M6x7F/W4EwYwoO/hTr/rYBkcEOc=</dsig:DigestValue>
+        <dsig:DigestValue>tdIwPGQOspA2bviSr/9gxWn6kCA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ServerChannel.exe" size="14336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ServerChannel.exe" size="15872">
       <assemblyIdentity name="ServerChannel" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zgv7wT9jm5Z693f7rcAyWMFkNF4=</dsig:DigestValue>
+        <dsig:DigestValue>22eeYc7NNMsHpk6Ro+fpjweKd+4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VDI.exe" size="198144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VDI.exe" size="197120">
       <assemblyIdentity name="VDI" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yZ7r+DC7xZ597KSj+6PqZAV+J4M=</dsig:DigestValue>
+        <dsig:DigestValue>V/1qQ1XmcllbI2saZPqNmMiQQ5o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

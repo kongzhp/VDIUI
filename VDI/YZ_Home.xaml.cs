@@ -52,15 +52,15 @@ namespace VDI
                 ServerCommunicator serverChannel = new ServerCommunicator();
                 try
                 {
-                    ArrayList ipOfServers = serverChannel.getServersOfCluster(ip); //获取在同一集群上的所有vdi的IP
+                    /*ArrayList ipOfServers = serverChannel.getServersOfCluster(ip); //获取在同一集群上的所有vdi的IP
                     //随机从ipOfServers中选取一个IP
                     Random random = new Random();
                     int randomIndex = random.Next(ipOfServers.Count);
-                    String IPsel = (String)ipOfServers[randomIndex];
-                    ArrayList domains = serverChannel.getDomains(IPsel);
+                    String IPsel = (String)ipOfServers[randomIndex];*/
+                    ArrayList domains = serverChannel.getDomains(ip);
                     //把光标样式改回arrow
                     // this.Cursor = Cursors.Arrow;
-                    User userPage = new User(domains, IPsel);
+                    User userPage = new User(domains, ip);
                     this.NavigationService.Navigate(userPage);
                 }
                 catch (Exception webex)

@@ -1,4 +1,5 @@
-﻿namespace RDPConnecter
+﻿using AxMSTSCLib;
+namespace RDPConnecter
 {
     partial class RemoteDesktopWindow
     {
@@ -30,7 +31,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoteDesktopWindow));
             this.panel = new System.Windows.Forms.Panel();
-            this.rdpClient = new AxMSTSCLib.AxMsRdpClient2();
+            this.rdpClient = new AxMSTSCLib.AxMsRdpClient7();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rdpClient)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +71,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel;
-        public AxMSTSCLib.AxMsRdpClient2 rdpClient;
+        public AxMSTSCLib.AxMsRdpClient7 rdpClient;
     }
 }
 

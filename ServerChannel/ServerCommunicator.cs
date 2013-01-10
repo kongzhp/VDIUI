@@ -180,31 +180,62 @@ namespace ServerChannel
             }       
             
             string[] ss = s.Split('\n');
-            string userId = "";
-            if (ss.Length < 1)
-                return null;
-            else
+            if (ss[0].Equals("error=No desktop is assigned to the user."))
             {
-                string[] sss = ss[0].Split('=');
-                if (sss.Length < 2)
-                    return null;
-                userId = sss[1];
+                return new GetPoolResult();
+            }
+            else if (ss[0].Equals("error=An incorrect user name or password was entered."))
+                return null;
+
+            string userId = "";
+            ArrayList pools = new ArrayList();
+            try
+            {
+                userId = ss[0].Split('=')[1];
+                string[] temp = ss[3].Split('=');
+                int numPool = Int32.Parse(temp[1]);
+
+                int index = 4;
+                for (int i = 0; i < numPool; i++)
+                {
+                    string[] sss1 = ss[index++].Split('=');   // pool name
+                    string[] sss2 = ss[index++].Split('=');   // pool id
+                    string[] sss3 = ss[index++].Split('=');   // pool status
+                    string pool_name = sss1[1];
+                    string pool_id = sss2[1];
+                    bool pool_ready = sss3[1].Equals("1") ? true : false;
+
+                    ArrayList gateways = null;
+                    if (index != ss.Length)
+                    {
+                        string[] a = ss[index].Split('=');
+                        string[] aa = a[0].Split('.');
+                        if (a.Length == 2 && aa.Length == 4 && aa[2].Equals("gw"))
+                        {
+                            gateways = new ArrayList();
+                            int numGw = Int32.Parse(a[1]);
+                            for (int j = 0; j < numGw; j++)
+                            {
+                                string gwType = ss[++index].Split('=')[1];
+                                string gwAddr = ss[++index].Split('=')[1];
+                                string gwUser = ss[++index].Split('=')[1];
+                                string gwPass = ss[++index].Split('=')[1];
+                                Gateway gw = new Gateway(gwUser, gwPass, gwAddr, gwType);
+                                gateways.Add(gw);
+                            }
+                            index++;
+                        }
+                    }
+
+                    Pool pool = new Pool(pool_id, pool_name, pool_ready, gateways);
+                    pools.Add(pool);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
 
-            ArrayList pools = new ArrayList();
-            for (int i = 0; i < (ss.Length-4)/3; i++)
-            {
-                string[] sss1 = ss[4 + i * 3].Split('=');
-                string[] sss2 = ss[5 + i * 3].Split('=');
-                string[] sss3 = ss[6 + i * 3].Split('=');
-                if (sss1.Length < 2 || sss2.Length < 2 || sss3.Length < 2)
-                    continue;
-                string pool_name = sss1[1];
-                string pool_id = sss2[1];
-                bool pool_ready = sss3[1].Equals("1") ? true : false;
-                Pool pool = new Pool(pool_id, pool_name, pool_ready);
-                pools.Add(pool);
-            }
             PoolList poolList = new PoolList(pools);
             GetPoolResult result = new GetPoolResult(userId, poolList);
             return result;

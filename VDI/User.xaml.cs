@@ -116,7 +116,7 @@ namespace VDI
                 }
                 catch (Exception ex)
                 {
-                    String errorText = "连接超时，请确保服务器IP正确，或联系网络管理员。"+ex.Message;
+                    String errorText = "连接服务器超时或者产生错误，请确保服务器IP正确，或联系网络管理员。";
                     MessageBoxButton btn = MessageBoxButton.OK;
                     MessageBoxImage img = MessageBoxImage.Error;
                     MessageBox.Show(errorText, "网络异常", btn, img);

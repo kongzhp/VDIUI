@@ -18,8 +18,6 @@ namespace RDPConnecter
             InitializeControlEvents();
             setRemoteDesktop(server, port, username, password, width, height, fullScreen);
             this.Text = title;
-            
-            rdpClient.Connect();
         }
 
         public void setRemoteDesktop(string server, int port, string username, string password, int width, int height,
@@ -64,6 +62,25 @@ namespace RDPConnecter
             rdpClient.AdvancedSettings2.RedirectPrinters = true;    // 打印机重定向
             rdpClient.AdvancedSettings2.RedirectSmartCards = true;  // 智能卡重定向
 
+            rdpClient.AdvancedSettings6.RedirectDevices = true;     // 设备重定向
+            rdpClient.AdvancedSettings6.RedirectPOSDevices = true;  // POS设备重定向
+            rdpClient.AdvancedSettings6.RedirectClipboard = true;   // 剪贴板重定向
+
+        }
+
+        public void setRDGW(string hostname, string username, string password, uint usageMethod = 1, uint credsSource = 0, uint profileUsageMethod = 1)
+        {
+            rdpClient.TransportSettings2.GatewayHostname = hostname;
+            rdpClient.TransportSettings2.GatewayUsername = username;
+            rdpClient.TransportSettings2.GatewayPassword = password;
+            rdpClient.TransportSettings2.GatewayUsageMethod = usageMethod;
+            rdpClient.TransportSettings2.GatewayCredsSource = credsSource;
+            rdpClient.TransportSettings2.GatewayProfileUsageMethod = profileUsageMethod;
+        }
+
+        public void connect()
+        {
+            rdpClient.Connect();
         }
 
         public void InitializeControlEvents()
