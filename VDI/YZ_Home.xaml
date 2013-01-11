@@ -86,7 +86,7 @@
                     </TextBox.Style>
                 </TextBox>
 
-        		<Button Style="{StaticResource SpecialButton}"  Click="Button_Click"/>
+        		<Button Style="{StaticResource SpecialButton}"  x:Name="forwardButton" Click="Button_Click"/>
             
         	</StackPanel>
         	<TextBlock Height="21" HorizontalAlignment="Left" x:Name="warningBlock" VerticalAlignment="Center" Width="270" />

@@ -31,16 +31,43 @@ namespace VDI
         }
         private void connectServer()
         {
-            ArrayList domains = serverChannel.getDomains(ip);
-            //把光标样式改回arrow
-            // this.Cursor = Cursors.Arrow;
-            this.Dispatcher.BeginInvoke(
-                System.Windows.Threading.DispatcherPriority.Normal,
-                (UpdateTheUI)delegate()
+            try
             {
-                User userPage = new User(domains, ip);
-                this.NavigationService.Navigate(userPage);
-            });
+                this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
+                    {
+                        forwardButton.IsEnabled = false;
+                        ipTextBox.IsEnabled = false;
+                    });
+            
+                ArrayList domains = serverChannel.getDomains(ip);
+                //把光标样式改回arrow
+                // this.Cursor = Cursors.Arrow;
+                this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
+                {
+                    User userPage = new User(domains, ip);
+                    this.NavigationService.Navigate(userPage);
+                });
+            }                
+                catch (Exception webex)
+                {
+                    String errorText = "连接超时，请确保服务器IP正确，或联系网络管理员";
+                    MessageBoxButton btn = MessageBoxButton.OK;
+                    MessageBoxImage img = MessageBoxImage.Error;
+                    MessageBox.Show(errorText, "网络异常", btn, img);
+                    this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
+                    {
+                        this.Cursor = Cursors.Arrow;
+                        forwardButton.IsEnabled = true;
+                        ipTextBox.IsEnabled = true;
+                    });
+                    
+                }
             
         }
 
@@ -63,34 +90,27 @@ namespace VDI
             else
             {
                 //把光标样式改为pen
-                Mouse.SetCursor(Cursors.Wait);
+                
                 
                 //this.Visibility = System.Windows.Visibility.Hidden;
                 //this.Visibility = System.Windows.Visibility.Visible;
                
-                try
-                {
+     
                     /*ArrayList ipOfServers = serverChannel.getServersOfCluster(ip); //获取在同一集群上的所有vdi的IP
                     //随机从ipOfServers中选取一个IP
                     Random random = new Random();
                     int randomIndex = random.Next(ipOfServers.Count);
                     String IPsel = (String)ipOfServers[randomIndex];*/
-                    //ArrayList domains = serverChannel.getDomains(ip);
+                   // ArrayList domains = serverChannel.getDomains(ip);
                     //把光标样式改回arrow
-                    // this.Cursor = Cursors.Arrow;
-                    //User userPage = new User(domains, ip);
+                   // this.Cursor = Cursors.Arrow;
+                   // User userPage = new User(domains, ip);
                     //this.NavigationService.Navigate(userPage);
                     Thread connThread = new Thread(connectServer);
                     connThread.Start();
-                }
-                catch (Exception webex)
-                {
-                    String errorText = "连接超时，请确保服务器IP正确，或联系网络管理员";
-                    MessageBoxButton btn = MessageBoxButton.OK;
-                    MessageBoxImage img = MessageBoxImage.Error;
-                    MessageBox.Show(errorText, "网络异常", btn, img);
-                }
-
+                    
+                    this.Cursor = Cursors.Wait;
+                    Mouse.SetCursor(Cursors.Wait);
 
             }
         }
