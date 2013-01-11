@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Collections;
 using ServerChannel;
 using System.Net;
+using System.Threading;
 namespace VDI
 {
     /// <summary>
@@ -21,14 +22,31 @@ namespace VDI
     /// </summary>
     public partial class YZ_Home : Page
     {
+        private ServerCommunicator serverChannel;
+        private string ip;
         public YZ_Home()
         {
             InitializeComponent();
+            serverChannel = new ServerCommunicator();
+        }
+        private void connectServer()
+        {
+            ArrayList domains = serverChannel.getDomains(ip);
+            //把光标样式改回arrow
+            // this.Cursor = Cursors.Arrow;
+            this.Dispatcher.BeginInvoke(
+                System.Windows.Threading.DispatcherPriority.Normal,
+                (UpdateTheUI)delegate()
+            {
+                User userPage = new User(domains, ip);
+                this.NavigationService.Navigate(userPage);
+            });
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            String ip = ipTextBox.Text;
+            ip = ipTextBox.Text;
             ip = ip.Trim(); //去除字符串前的空格
             //假如ip为空或格式不正确，指出错误
             if (ip == "" || ip == null || ip == String.Empty)
@@ -49,7 +67,7 @@ namespace VDI
                 
                 //this.Visibility = System.Windows.Visibility.Hidden;
                 //this.Visibility = System.Windows.Visibility.Visible;
-                ServerCommunicator serverChannel = new ServerCommunicator();
+               
                 try
                 {
                     /*ArrayList ipOfServers = serverChannel.getServersOfCluster(ip); //获取在同一集群上的所有vdi的IP
@@ -57,11 +75,13 @@ namespace VDI
                     Random random = new Random();
                     int randomIndex = random.Next(ipOfServers.Count);
                     String IPsel = (String)ipOfServers[randomIndex];*/
-                    ArrayList domains = serverChannel.getDomains(ip);
+                    //ArrayList domains = serverChannel.getDomains(ip);
                     //把光标样式改回arrow
                     // this.Cursor = Cursors.Arrow;
-                    User userPage = new User(domains, ip);
-                    this.NavigationService.Navigate(userPage);
+                    //User userPage = new User(domains, ip);
+                    //this.NavigationService.Navigate(userPage);
+                    Thread connThread = new Thread(connectServer);
+                    connThread.Start();
                 }
                 catch (Exception webex)
                 {

@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections;
 using ServerChannel;
+using System.Threading;
 namespace VDI
 {
 	public partial class User
@@ -20,10 +21,15 @@ namespace VDI
         public PoolList Plist { get; set; } //桌面池
         public String UserID { get; set; }         //用户ID
         public String IP { get; set; }             //服务器IP
+        private string userName;
+        private string pwd;
+        private string domainID;
+        private ServerCommunicator serverChannel;
+        private string domainName;
 		public User()
 		{
 			this.InitializeComponent();
-
+            serverChannel = new ServerCommunicator();
 			// Insert code required on object creation below this point.
 		}
         public User(ArrayList domains , String ip)
@@ -54,16 +60,56 @@ namespace VDI
             box.BorderThickness = new Thickness(1.0);
 
         }
+        private void connectServer()
+        {
+            this.Dispatcher.BeginInvoke(
+                System.Windows.Threading.DispatcherPriority.Normal,
+                (UpdateTheUI)delegate()
+                {
+                    try
+                    {
+                        GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
+                        if (res == null)
+                        {
+                            warningBlock.Text = "* 账号或密码错误。";
+                            warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+                        }
+                        else
+                        {
+
+                            UserID = res.getUserId();
+                            if (UserID.Contains("incorrect"))
+                            {
+                                warningBlock.Text = "* 账号或密码错误。";
+                                warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
+                            }
+                            else
+                            {
+                                Plist = res.getPoolList();
+                                DesktopPools dpools = new DesktopPools(IP, UserID, userName, pwd, Plist, domainName, domainID);
+                                this.NavigationService.Navigate(dpools);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        String errorText = "连接服务器超时或者产生错误，请确保服务器IP正确，或联系网络管理员。";
+                        MessageBoxButton btn = MessageBoxButton.OK;
+                        MessageBoxImage img = MessageBoxImage.Error;
+                        MessageBox.Show(errorText, "网络异常", btn, img);
+                    }
+                });
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //改变光标为loading
             Mouse.SetCursor(Cursors.Wait);
             //获取用户名、密码、domain
-            String userName = username.Text;
+            userName = username.Text;
             userName.Trim();
-            String pwd = password.Password;
+            pwd = password.Password;
             pwd.Trim();
-            String domainID = (String)domainListBox.SelectedValue;
+            domainID = (String)domainListBox.SelectedValue;
             
             //检查用户名、密码、域名是否为空
             if (userName == "" || userName == null || userName == String.Empty)
@@ -86,41 +132,11 @@ namespace VDI
             }
             else
             {
-                String domainName = ((Domain)domainListBox.SelectedItem).Name;
-                ServerCommunicator serverChannel = new ServerCommunicator();
+                domainName = ((Domain)domainListBox.SelectedItem).Name;
                 //向服务器请求pool列表
-                try
-                {
-                    GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
-                    if (res == null)
-                    {
-                        warningBlock.Text = "* 账号或密码错误。";
-                        warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
-                    }
-                    else
-                    {
+                Thread conServer = new Thread(connectServer);
+                conServer.Start();
 
-                        UserID = res.getUserId();
-                        if (UserID.Contains("incorrect"))
-                        {
-                            warningBlock.Text = "* 账号或密码错误。";
-                            warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
-                        }
-                        else
-                        {
-                            Plist = res.getPoolList();
-                            DesktopPools dpools = new DesktopPools(IP, UserID, userName, pwd, Plist, domainName);
-                            this.NavigationService.Navigate(dpools);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    String errorText = "连接服务器超时或者产生错误，请确保服务器IP正确，或联系网络管理员。";
-                    MessageBoxButton btn = MessageBoxButton.OK;
-                    MessageBoxImage img = MessageBoxImage.Error;
-                    MessageBox.Show(errorText, "网络异常", btn, img);
-                }
             }
 
 

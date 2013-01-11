@@ -13,9 +13,6 @@ C:\Users\Michael\documents\visual studio 2010\Projects\RDPConnecter\RDPConnecter
 C:\Users\Michael\Documents\Visual Studio 2010\Projects\RDPConnecter\RDPConnecter\obj\x86\Debug\RDPConnecter.RDPConnecter.resources
 E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\RDPConnecter.exe
 E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\RDPConnecter.pdb
-E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\MsTscAxWrapper.dll
-E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\MSTSCLib.dll
-E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\MsTscAxWrapper.pdb
 E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\ResolveAssemblyReference.cache
 E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\RDPConnecter.RDPConnecter.resources
 E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\RDPConnecter.RemoteDesktopWindow.resources
@@ -38,3 +35,7 @@ E:\code\VDIUI\RDPConnecter\bin\Debug\RDPConnecter.pdb
 E:\code\VDIUI\RDPConnecter\bin\Debug\AxInterop.MSTSCLib.dll
 E:\code\VDIUI\RDPConnecter\obj\x86\Debug\RDPConnecter.pdb
 E:\code\VDIUI\RDPConnecter\bin\Debug\Interop.MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\AxInterop.MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\RDPConnecter\bin\Debug\Interop.MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\Interop.MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\RDPConnecter\obj\x86\Debug\RDPConnecter.csproj.ResolveComReference.cache

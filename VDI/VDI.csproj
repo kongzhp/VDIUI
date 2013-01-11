@@ -16,7 +16,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <Utf8Output>true</Utf8Output>
-    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\Users\kongzhp\Desktop\VDI\</PublishUrl>
     <Install>true</Install>
@@ -153,6 +153,8 @@
   <ItemGroup>
     <Resource Include="image\cloud2_bg.jpg" />
     <Resource Include="image\Next.png" />
+    <Resource Include="image\Refresh.png" />
+    <Resource Include="Refresh.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\bg3.jpg" />
@@ -218,6 +220,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\RefreshMouseOn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

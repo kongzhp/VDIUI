@@ -61,11 +61,8 @@ E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\VDI_MarkupCompile.lref
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\ServerChannel.exe
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\ServerChannel.pdb
-E:\study\VirtualDesktop\VDI\VDI\bin\Debug\MsTscAxWrapper.dll
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\RDPConnecter.exe
-E:\study\VirtualDesktop\VDI\VDI\bin\Debug\MsTscAxWrapper.pdb
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\RDPConnecter.pdb
-E:\study\VirtualDesktop\VDI\VDI\bin\Debug\MSTSCLib.dll
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\WpfAnimatedGif.dll
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\WpfAnimatedGif.xml
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\VDI.exe.manifest
@@ -108,3 +105,7 @@ E:\code\VDIUI\VDI\bin\Debug\AxInterop.MSTSCLib.dll
 E:\code\VDIUI\VDI\obj\x86\Debug\Interop.MSTSCLib.dll
 E:\code\VDIUI\VDI\obj\x86\Debug\VDI.csproj.ResolveComReference.cache
 E:\code\VDIUI\VDI\bin\Debug\Interop.MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\Interop.MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\VDI.csproj.ResolveComReference.cache
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\AxInterop.MSTSCLib.dll
+E:\study\VirtualDesktop\VDI\VDI\bin\Debug\Interop.MSTSCLib.dll

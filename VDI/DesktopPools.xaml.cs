@@ -34,6 +34,7 @@ namespace VDI
         public String DomainName { get; set; }
         public String  RequestID { get; set; }
         public String Password { get; set; }
+        private string domainID;
         private ComboBoxItem pixelItem;
         private string pixel;
         private string poolname;
@@ -46,9 +47,25 @@ namespace VDI
             
             InitializeComponent();
             serverChannel = new ServerCommunicator();
+            poolListBox.ItemContainerGenerator.StatusChanged += new EventHandler(ItemContainerGenerator_StatusChanged);
         }
 
-        public DesktopPools(String ip, String userID, String userName , String pwd, PoolList pList, String domainName)
+        void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
+        {
+            if (poolListBox.ItemContainerGenerator.Status == System.Windows.Controls.Primitives.GeneratorStatus.ContainersGenerated)
+            {
+                foreach (Pool pitem in poolListBox.Items)
+                {
+                    if (!pitem.Ready)
+                    {
+                        ListBoxItem lbi = poolListBox.ItemContainerGenerator.ContainerFromItem(pitem) as ListBoxItem;
+                        lbi.IsEnabled = false;
+                    }
+                }
+            }
+        }
+
+        public DesktopPools(String ip, String userID, String userName , String pwd, PoolList pList, String domainName, string domainid)
             : this()
         {
             UserID = userID;
@@ -57,6 +74,7 @@ namespace VDI
             userLabel.Content = userName;
             DomainName = domainName;
             poolListBox.ItemsSource = PList;
+            domainID = domainid;
             ServerIP = ip;
             Password = pwd;
         }
@@ -226,6 +244,60 @@ namespace VDI
             //rdw.Show();
             //rdw.BringToFront();
 
+
+        }
+
+        private void poolListBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            foreach (Pool pitem in poolListBox.Items)
+            {
+                if (!pitem.Ready)
+                {
+                    ListBoxItem lbi = poolListBox.ItemContainerGenerator.ContainerFromItem(pitem) as ListBoxItem;
+                    lbi.IsEnabled = false;
+                }
+            }
+        }
+        private void refreshPools()
+        {
+            this.Dispatcher.BeginInvoke(
+                System.Windows.Threading.DispatcherPriority.Normal,
+                (UpdateTheUI)delegate()
+                {
+                    try
+                    {
+                        GetPoolResult res = serverChannel.getPoosWithAuth(ServerIP, UserName, Password, domainID);
+                        if (res == null)
+                        {
+                            throw new Exception("result is null");
+                        }
+                        else
+                        {
+
+                            poolListBox.ItemsSource = res.getPoolList().getPools();
+
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        String errorText = "连接服务器超时或者产生错误，请确保服务器IP正确，或联系网络管理员。";
+                        MessageBoxButton btn = MessageBoxButton.OK;
+                        MessageBoxImage img = MessageBoxImage.Error;
+                        System.Windows.MessageBox.Show(errorText, "网络异常", btn, img);
+                    }
+                    finally
+                    {
+                        Mouse.SetCursor(System.Windows.Input.Cursors.Arrow);
+                    }
+                });
+        }
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            //改变光标为loading
+            Mouse.SetCursor(System.Windows.Input.Cursors.Wait);
+            Thread refThread = new Thread(refreshPools);
+            refThread.Start();
 
         }
     }
