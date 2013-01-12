@@ -109,3 +109,5 @@ E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\Interop.MSTSCLib.dll
 E:\study\VirtualDesktop\VDI\VDI\obj\x86\Debug\VDI.csproj.ResolveComReference.cache
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\AxInterop.MSTSCLib.dll
 E:\study\VirtualDesktop\VDI\VDI\bin\Debug\Interop.MSTSCLib.dll
+I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\Interop.MSTSCLib.dll
+I:\study\Master_Paper\VDI2\VDIUI\VDI\obj\x86\Debug\VDI.csproj.ResolveComReference.cache

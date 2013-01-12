@@ -30,8 +30,19 @@ namespace VDI
 		{
 			this.InitializeComponent();
             serverChannel = new ServerCommunicator();
+            domainListBox.ItemContainerGenerator.StatusChanged += new EventHandler(ItemContainerGenerator_StatusChanged);
 			// Insert code required on object creation below this point.
 		}
+        //当domain Box加载完时，把第一项设为默认
+        void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
+        {
+            if (domainListBox.ItemContainerGenerator.Status == 
+                                          System.Windows.Controls.Primitives.GeneratorStatus.ContainersGenerated)
+            {
+                
+                domainListBox.SelectedIndex = 0;
+            }
+        }
         public User(ArrayList domains , String ip)
             : this()
         {
@@ -90,6 +101,7 @@ namespace VDI
                                 this.NavigationService.Navigate(dpools);
                             }
                         }
+
                     }
                     catch (Exception ex)
                     {
@@ -98,12 +110,16 @@ namespace VDI
                         MessageBoxImage img = MessageBoxImage.Error;
                         MessageBox.Show(errorText, "网络异常", btn, img);
                     }
+                    finally
+                    {
+                        this.Cursor = Cursors.Arrow;
+                    }
                 });
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //改变光标为loading
-            Mouse.SetCursor(Cursors.Wait);
+            
             //获取用户名、密码、domain
             userName = username.Text;
             userName.Trim();
@@ -136,7 +152,8 @@ namespace VDI
                 //向服务器请求pool列表
                 Thread conServer = new Thread(connectServer);
                 conServer.Start();
-
+                this.Cursor = Cursors.Wait;
+                Mouse.SetCursor(Cursors.Wait);
             }
 
 
