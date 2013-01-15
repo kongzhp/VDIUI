@@ -9,7 +9,7 @@
 	FlowDirection="LeftToRight"
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="450"
-    Title="userPage" Width="Auto">
+    Title="用户登录" Width="Auto">
     <Page.Resources>
         <Style x:Key="warningBoxStyle" TargetType="TextBlock">
             <!--<Setter Property="Background" Value="#FF313131"/>-->
@@ -116,7 +116,7 @@
 
 
         			<Label Content="活动目录域" Grid.Row="2" Width="auto" HorizontalAlignment="Right" Height="28" Foreground="White" />
-                    <ComboBox x:Name="domainListBox" Loaded="domainListBox_Loaded" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 2" 
+                    <ComboBox x:Name="domainListBox"  Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 2" 
         				 SelectedValue="{Binding DomainList, Mode=TwoWay}"
                          SelectedValuePath="Id" DisplayMemberPath="Name" Margin="0,7" />
                     <!--<ComboBox x:Name="domainListBox" Grid.Row="2" Grid.Column="1" Width="179" Height="26.157" HorizontalAlignment="Left" FontSize="12" Padding="2 0 0 0" 

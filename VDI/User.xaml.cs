@@ -49,14 +49,10 @@ namespace VDI
             
             DomainList = domains;
             IP = ip;
+            domainListBox.ItemsSource = DomainList;
             
         }
-        private void domainListBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            ComboBox box = sender as ComboBox;
-            box.ItemsSource = DomainList;
-            
-        }
+
         private void TextBoxItem_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox box = sender as TextBox;
@@ -158,5 +154,9 @@ namespace VDI
 
 
         }
+
+
+
+
 	}
 }

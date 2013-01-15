@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>bY3Pv5wcIgvPBy02dDETDgx5rys=</dsig:DigestValue>
+        <dsig:DigestValue>5jBrrPWejrKtCz13aTiaiT/tS4w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kavWUsauEH7otcOVzhipH5Almk0=</dsig:DigestValue>
+        <dsig:DigestValue>UXBrhipvEaaI1dWDQe1XAEXlSok=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,19 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8/dAl5J1CNryXMFZ13J5WYNnffA=</dsig:DigestValue>
+        <dsig:DigestValue>QKK3PaZ8EbYwNLSdi7NyuOu2gCY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VDI.exe" size="203776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VDI.exe" size="204800">
       <assemblyIdentity name="VDI" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ojqcw0JI3lHEO8VTB1zRhJjQ5MY=</dsig:DigestValue>
+        <dsig:DigestValue>nYEEebceg4jP6nnQvec9LjHh7k4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -300,6 +300,14 @@ namespace VDI
             refThread.Start();
 
         }
+        //退出登录
+        private void userLabel_Click(object sender, RoutedEventArgs e)
+        {
+            User userPage = new User((System.Windows.Application.Current as App).domainList,
+                                       (System.Windows.Application.Current as App).serverIP);
+            this.NavigationService.Navigate(userPage);
+            
+        }
     }
     
 }

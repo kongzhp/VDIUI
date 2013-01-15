@@ -7,7 +7,7 @@
       xmlns:gif="http://wpfanimatedgif.codeplex.com"
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="450"
-	Title="DesktopPools">
+	Title="选择桌面池">
     <Page.Resources>
         <!--refresh button style-->
 
@@ -36,6 +36,25 @@
                 </Setter.Value>
             </Setter>
 
+        </Style>
+        <!--style for user button link-->
+        <Style x:Key="LinkButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock TextDecorations="Underline" Padding="4">
+                            <ContentPresenter /></TextBlock>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Foreground" Value="#67D5FF" />
+					<Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="ToolTip" Value="退出" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <!-- ListBox item template, display the pools info -->
         <DataTemplate x:Key="poolsListItemTemplate" DataType="{x:Type local:Pool}">
@@ -97,7 +116,7 @@
         <StackPanel  Grid.Row="0" HorizontalAlignment="Center" Width="378" Margin="0" VerticalAlignment="Center" >
         	<StackPanel Height="31" Orientation="Horizontal" Margin="0">
         		<StackPanel Width="130" Orientation="Horizontal" Height="27.65" VerticalAlignment="Top">
-        			<Label  Foreground="White" Background="#00DE0000" x:Name="userLabel"/>
+                    <Button  Style="{StaticResource LinkButton}" x:Name="userLabel" Click="userLabel_Click"/>
         			<Label Content=",欢迎您！" Foreground="White" />
         		</StackPanel>
         		<StackPanel HorizontalAlignment="Right" Height="31" Width="138" Orientation="Horizontal" Margin="83,0,0,0">

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="450"
       
-	Title="YZ_Home">
+	Title="首页">
     <Page.Resources>
         <src:IpRule x:Key="iprule"/>
         <Style x:Key="warningBoxStyle" TargetType="TextBlock">

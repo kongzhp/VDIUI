@@ -41,14 +41,14 @@ namespace VDI
                         ipTextBox.IsEnabled = false;
                     });
             
-                ArrayList domains = serverChannel.getDomains(ip);
+                (Application.Current as App).domainList = serverChannel.getDomains(ip);
                 //把光标样式改回arrow
                 // this.Cursor = Cursors.Arrow;
                 this.Dispatcher.BeginInvoke(
                     System.Windows.Threading.DispatcherPriority.Normal,
                     (UpdateTheUI)delegate()
                 {
-                    User userPage = new User(domains, ip);
+                    User userPage = new User((Application.Current as App).domainList, ip);
                     this.NavigationService.Navigate(userPage);
                 });
             }                
@@ -106,6 +106,7 @@ namespace VDI
                    // this.Cursor = Cursors.Arrow;
                    // User userPage = new User(domains, ip);
                     //this.NavigationService.Navigate(userPage);
+                    (Application.Current as App).serverIP = ip;
                     Thread connThread = new Thread(connectServer);
                     connThread.Start();
                     
