@@ -18,7 +18,7 @@ using RDPConnecter;
 using System.Windows.Threading;
 using System.Threading;
 using MSTSCLib;
-
+using log4net;
 namespace VDI
 {
     /// <summary>
@@ -27,21 +27,18 @@ namespace VDI
      delegate void UpdateTheUI();
     public partial class DesktopPools : Page
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(DesktopPools));
         public ArrayList PList { get; set; }
         public String UserID { get; set; }
         public String UserName { get; set; }
         public String ServerIP { get; set; }
         public String DomainName { get; set; }
-        public String  RequestID { get; set; }
         public String Password { get; set; }
         private string domainID;
-        private ComboBoxItem pixelItem;
-        private string pixel;
-        private string poolname;
-        private Gateway gw;
         public delegate void desktopStatDelegate();
         private ServerCommunicator serverChannel;
         private ArrayList rdpWinList = new ArrayList();
+
         public DesktopPools()
         {
             
@@ -96,7 +93,7 @@ namespace VDI
             return null;
         }
         //用于更新被选中的pool的UI
-        private void updateStatus(string statusString , bool loading)
+        private void updateStatus(ListBoxItem poolSelItem, string statusString, bool loading)
         {
                 this.Dispatcher.BeginInvoke(
                    
@@ -104,8 +101,6 @@ namespace VDI
                      System.Windows.Threading.DispatcherPriority.Normal,
                             (UpdateTheUI)delegate()
                             {
-                                ListBoxItem poolSelItem = 
-                                    (ListBoxItem)(poolListBox.ItemContainerGenerator.ContainerFromItem(poolListBox.SelectedItem));
                                 ContentPresenter myContentPresenter = FindVisualChild<ContentPresenter>(poolSelItem);
                                 DataTemplate myDataTemplate = myContentPresenter.ContentTemplate;
                                 System.Windows.Controls.Label statLabel = 
@@ -118,21 +113,38 @@ namespace VDI
                                     imageICON.Visibility = Visibility.Hidden;
                             });
         }
-        public void checkDesktopStatus()
+        public void checkDesktopStatus(object param)
         {
+            ArrayList p = (ArrayList)param;
+            Pool poolSel = (Pool)p[0];
+            Gateway gw = (Gateway)p[1];
+            string pixel = (string)p[2];
+            ListBoxItem poolSelItem = (ListBoxItem)p[3];
+            string RequestID = (string)p[4];
             bool ready = false; //标记桌面是否已准备好
             while (!ready)
-            {         
-                string status = serverChannel.getDesktopStatus(ServerIP, RequestID);
+            {
+                string status = "";
+                try
+                {
+                    status = serverChannel.getDesktopStatus(ServerIP, RequestID);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("为用户" + UserName + "请求桌面状态时产生错误：" + e.Message);
+                    updateStatus(poolSelItem, "无法获取桌面状态", false);
+                    return;
+                }
                 if (status == null)
                 {
                     //desktopStatus.Text = "没有空闲桌面";
-                    updateStatus("没有空闲桌面", false);
-                    ready = true;
+                    logger.Error("没有空闲桌面可分配给用户" + UserName);
+                    updateStatus(poolSelItem, "没有空闲桌面", false);
+                    return;
                 }
                 else if (status.Equals("not ready"))
                 {
-                    updateStatus("桌面正在启动", true);
+                    updateStatus(poolSelItem, "桌面正在启动", true);
                     Thread.Sleep(2000);
                 }
                 else
@@ -162,7 +174,8 @@ namespace VDI
                                         //statusBlock.Text = "桌面正在启动...";
                                          //updateStatus("桌面正在启动");
                                         string formTitlePattern = "云晫 - {0}@{1}";
-                                        string formTitle = string.Format(formTitlePattern, UserName, poolname);                                      
+                                        string formTitle = string.Format(formTitlePattern, UserName, poolSel.Name);
+                                        Thread.Sleep(10000);
                                         RemoteDesktopWindow rdw = new RemoteDesktopWindow(formTitle, ip, port, UserName, Password, width, height, fullScreen);
                                         if (null != gw)
                                             rdw.setRDGW(gw.getAddress(), gw.getUsername(), gw.getPassword());
@@ -171,7 +184,7 @@ namespace VDI
                                         rdw.BringToFront();
                                         rdpWinList.Add(rdw);
                                         ready = true;
-                                        updateStatus("准备", false);
+                                        updateStatus(poolSelItem, "准备", false);
                                      });
                  
                     // 桌面已准备好，开始连接
@@ -180,23 +193,23 @@ namespace VDI
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-      
-            String displayMode = (String)((ComboBoxItem)displayComboBox.SelectedValue).Content;
+            string displayMode = (string)((ComboBoxItem)displayComboBox.SelectedValue).Content;
             Pool poolSel = (Pool)poolListBox.SelectedItem;
-            poolname = poolSel.Name;
+            string poolname = poolSel.Name;
             ArrayList gateways = poolSel.getGateways();
-            gw = null;
+            Gateway gw = null;
+            ComboBoxItem pixelItem = (ComboBoxItem)displayComboBox.SelectedItem;
+            string pixel = (string)pixelItem.Content;
+            ListBoxItem poolSelItem = (ListBoxItem)(poolListBox.ItemContainerGenerator.ContainerFromItem(poolListBox.SelectedItem));
             if (null != gateways && gateways.Count > 0)
             {
                 Random random = new Random();
                 int randomIndex = random.Next(gateways.Count);
                 gw = (Gateway)gateways[randomIndex];
             }
-            Mouse.SetCursor(System.Windows.Input.Cursors.Wait); //把鼠标设置为等待状态
-            RequestID = null;
-
+            
             string formTitlePattern = "云晫 - {0}@{1}";
-            string formTitle = string.Format(formTitlePattern, UserName, poolname);
+            string formTitle = string.Format(formTitlePattern, UserName, poolname, poolSelItem);
             bool canCreateNewForm = true;
             // 检查是否已经开启该pool的桌面
             foreach (Form f in rdpWinList)
@@ -210,41 +223,33 @@ namespace VDI
             }
             if (canCreateNewForm)
             {
-                try
-                {
-                    //向服务器请求桌面
-                    RequestID = serverChannel.requestDesktop(ServerIP, UserID, DomainName, poolSel.Id);
-                    Mouse.SetCursor(System.Windows.Input.Cursors.Arrow);
-                    if (RequestID == null)
-                    {
-                        //statusBlock.Text = "请重试";
-                    }
-                    else
-                    {
-                        // statusBlock.Dispatcher.BeginInvoke(DispatcherPriority.Normal, 
-                        //                                 new desktopStatDelegate(checkDesktopStatus));
-                        pixelItem = (ComboBoxItem)displayComboBox.SelectedItem;
-                        pixel = (string)pixelItem.Content;
-                        Thread checkThread = new Thread(checkDesktopStatus);
-                        checkThread.Start();
-                    }
-
-                }
-                catch (Exception ex) { }
+                Thread conThread = new Thread(new ParameterizedThreadStart(connectPool));
+                ArrayList param = new ArrayList() { poolSel, gw, pixel, poolSelItem };
+                conThread.Start(param);              
             }
+        }
 
-            //String server = "222.200.185.55";
-            //int port = 8007;
-            //String username = "kongzhp";
-            //String password = "admin123";
-            //int width = 1024;
-            //int height = 800;
-            //bool fullScreen = true;
-            //RemoteDesktopWindow rdw = new RemoteDesktopWindow(server, port, username, password, width, height, fullScreen);
-            //rdw.Show();
-            //rdw.BringToFront();
-
-
+        private void connectPool(Object param)
+        {
+            ArrayList p = (ArrayList)param;
+            Pool poolSel = (Pool)p[0];
+            ListBoxItem poolSelItem = (ListBoxItem)p[3];
+            string RequestID = "";
+            updateStatus(poolSelItem, "正在请求桌面", true);
+            //向服务器请求桌面
+            try
+            {
+                RequestID = serverChannel.requestDesktop(ServerIP, UserID, DomainName, poolSel.Id);
+            }
+            catch (Exception ex)
+            {
+                logger.Error("为用户" + UserName + "请求桌面池" + poolSel.Name + "中的桌面时产生错误：" + ex.Message);
+                updateStatus(poolSelItem, "请求桌面失败", false);
+                return;
+            }
+            p.Add(RequestID);
+            Thread checkThread = new Thread(new ParameterizedThreadStart(checkDesktopStatus));
+            checkThread.Start(p);
         }
 
         private void poolListBox_Loaded(object sender, RoutedEventArgs e)
@@ -260,37 +265,50 @@ namespace VDI
         }
         private void refreshPools()
         {
-            this.Dispatcher.BeginInvoke(
-                System.Windows.Threading.DispatcherPriority.Normal,
-                (UpdateTheUI)delegate()
-                {
-                    try
+            try {
+                this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
                     {
-                        GetPoolResult res = serverChannel.getPoosWithAuth(ServerIP, UserName, Password, domainID);
-                        if (res == null)
-                        {
-                            throw new Exception("result is null");
-                        }
-                        else
-                        {
-
-                            poolListBox.ItemsSource = res.getPoolList().getPools();
-
-
-                        }
-                    }
-                    catch (Exception ex)
+                        contentPanel.IsEnabled = false;
+                    });
+                GetPoolResult res = serverChannel.getPoosWithAuth(ServerIP, UserName, Password, domainID);
+                this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
                     {
-                        String errorText = "连接服务器超时或者产生错误，请确保服务器IP正确，或联系网络管理员。";
-                        MessageBoxButton btn = MessageBoxButton.OK;
-                        MessageBoxImage img = MessageBoxImage.Error;
-                        System.Windows.MessageBox.Show(errorText, "网络异常", btn, img);
-                    }
-                    finally
+                            if (res == null)
+                            {
+                                logger.Error("刷新桌面池时验证失败，即用户名或密码不正确");
+                                String errorText = "验证失败，请检查用户是否已经被撤销，或者密码有无被更改，并尝试重新登录！";
+                                MessageBoxButton btn = MessageBoxButton.OK;
+                                MessageBoxImage img = MessageBoxImage.Error;
+                                System.Windows.MessageBox.Show(errorText, "验证失败", btn, img);
+                            }
+                            else
+                            {
+                                poolListBox.ItemsSource = res.getPoolList().getPools();
+                            }     
+                    });
+            }
+            catch (Exception ex)
+            {
+                logger.Error("更新桌面池信息时产生错误：" + ex.Message);
+                String errorText = "更新桌面池超时或者产生错误，请确保网络连通，或联系网络管理员。";
+                MessageBoxButton btn = MessageBoxButton.OK;
+                MessageBoxImage img = MessageBoxImage.Error;
+                System.Windows.MessageBox.Show(errorText, "网络异常", btn, img);
+            }
+            finally
+            {
+                this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
                     {
-                        Mouse.SetCursor(System.Windows.Input.Cursors.Arrow);
-                    }
-                });
+                        contentPanel.IsEnabled = true;
+                        this.Cursor = System.Windows.Input.Cursors.Arrow;
+                    });
+            }
         }
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
@@ -298,7 +316,8 @@ namespace VDI
             Mouse.SetCursor(System.Windows.Input.Cursors.Wait);
             Thread refThread = new Thread(refreshPools);
             refThread.Start();
-
+            this.Cursor = System.Windows.Input.Cursors.Wait;
+            Mouse.SetCursor(System.Windows.Input.Cursors.Wait);
         }
         //退出登录
         private void userLabel_Click(object sender, RoutedEventArgs e)

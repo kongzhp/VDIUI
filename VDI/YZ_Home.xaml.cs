@@ -15,6 +15,7 @@ using System.Collections;
 using ServerChannel;
 using System.Net;
 using System.Threading;
+using log4net;
 namespace VDI
 {
     /// <summary>
@@ -22,6 +23,7 @@ namespace VDI
     /// </summary>
     public partial class YZ_Home : Page
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(YZ_Home));
         private ServerCommunicator serverChannel;
         private string ip;
         public YZ_Home()
@@ -33,17 +35,18 @@ namespace VDI
         {
             try
             {
+                // 正在连接，将样式改为忙碌，同时禁用点击和回车
                 this.Dispatcher.BeginInvoke(
                     System.Windows.Threading.DispatcherPriority.Normal,
                     (UpdateTheUI)delegate()
                     {
-                        forwardButton.IsEnabled = false;
-                        ipTextBox.IsEnabled = false;
+                        contentPanel.IsEnabled = false;
                     });
             
+                // 连接后台，获取域信息
                 (Application.Current as App).domainList = serverChannel.getDomains(ip);
-                //把光标样式改回arrow
-                // this.Cursor = Cursors.Arrow;
+
+                // 成功获取信息后，跳转到用户登录界面
                 this.Dispatcher.BeginInvoke(
                     System.Windows.Threading.DispatcherPriority.Normal,
                     (UpdateTheUI)delegate()
@@ -54,6 +57,7 @@ namespace VDI
             }                
                 catch (Exception webex)
                 {
+                    logger.Error("getDomains(" + ip + ")发生错误，错误信息为：" + webex.Message);
                     String errorText = "连接超时，请确保服务器IP正确，或联系网络管理员";
                     MessageBoxButton btn = MessageBoxButton.OK;
                     MessageBoxImage img = MessageBoxImage.Error;
@@ -63,8 +67,7 @@ namespace VDI
                     (UpdateTheUI)delegate()
                     {
                         this.Cursor = Cursors.Arrow;
-                        forwardButton.IsEnabled = true;
-                        ipTextBox.IsEnabled = true;
+                        contentPanel.IsEnabled = true;
                     });
                     
                 }

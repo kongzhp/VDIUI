@@ -32,6 +32,19 @@
 
             </Style.Triggers>
 		</Style>
+        <Style x:Key="passwordboxHightlight" TargetType="PasswordBox">
+            <EventSetter Event="LostFocus" Handler="PasswordBoxItem_LostFocus"/>
+            <Setter Property="BorderBrush" Value="#FFFB0202" />
+            <Setter Property="BorderThickness" Value="2" />
+
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#FFE3E9EF" />
+                    <Setter Property="BorderThickness" Value="1" />
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
         <Style x:Key="comboboxHightlight" TargetType="ComboBox">
             <EventSetter Event="LostFocus" Handler="ComboBoxItem_LostFocus"/>
             <Setter Property="BorderBrush" Value="#FFFB0202" />
@@ -71,7 +84,7 @@
             </Menu>
 		</DockPanel>-->
         <Label Grid.Row="0" Content="云晫科技" FontWeight="Bold" Width="101" FontSize="21.333" Background="#00F3EFEF" Foreground="White" BorderThickness="0" Height="39" HorizontalAlignment="Center" d:LayoutOverrides="Width" VerticalAlignment="Bottom"  />
-        <StackPanel Margin="0" Grid.Row="1" Width="400" VerticalAlignment="Center">
+        <StackPanel x:Name="contentPanel" Margin="0" Grid.Row="1" Width="400" VerticalAlignment="Center">
 
             <TextBlock x:Name="warningBlock" Height="21" Margin="0,0,0,5" TextWrapping="Wrap" HorizontalAlignment="Center" Width="320"/>
 

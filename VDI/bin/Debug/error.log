@@ -1,0 +1,121 @@
+2013-01-15 19:20:28,053 [11] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:144) ERROR ServerChannel.ServerCommunicator [(null)] - 从192.168.0.63获取域信息（）时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:20:28,115 [11] (E:\code\VDIUI\VDI\YZ_Home.xaml.cs:61) ERROR VDI.YZ_Home [(null)] - getDomains(192.168.0.63)发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:21:52,282 [10] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:200) ERROR ServerChannel.ServerCommunicator [(null)] - getPools--用户名或密码有误
+2013-01-15 19:28:33,040 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:144) ERROR ServerChannel.ServerCommunicator [(null)] - 从192.168.0.1获取域信息（）时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:28:33,091 [13] (E:\code\VDIUI\VDI\YZ_Home.xaml.cs:61) ERROR VDI.YZ_Home [(null)] - getDomains(192.168.0.1)发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:30:26,865 [16] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:144) ERROR ServerChannel.ServerCommunicator [(null)] - 从222.200.185.1获取域信息（）时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:30:26,875 [16] (E:\code\VDIUI\VDI\YZ_Home.xaml.cs:61) ERROR VDI.YZ_Home [(null)] - getDomains(222.200.185.1)发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:32:13,609 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:200) ERROR ServerChannel.ServerCommunicator [(null)] - getPools--用户名或密码有误
+2013-01-15 19:36:20,028 [3] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 19:36:20,030 [3] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:143) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 19:37:20,052 [10] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:37:20,114 [10] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:234) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:37:22,650 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:357) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面状态（）时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:37:22,662 [13] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:134) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面状态时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:40:48,843 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user4从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:40:48,895 [15] (E:\code\VDIUI\VDI\User.xaml.cs:106) ERROR VDI.YZ_Home [(null)] - 为用户user4从192.168.0.63处获取桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:41:15,904 [7] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:200) ERROR ServerChannel.ServerCommunicator [(null)] - getPools--用户名或密码有误
+2013-01-15 19:41:42,034 [10] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:41:42,078 [10] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:234) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:41:43,840 [3] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:357) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面状态（）时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:41:43,852 [3] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:134) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面状态时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:48:01,975 [10] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:48:02,059 [10] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:235) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 19:49:08,001 [7] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 19:49:08,006 [7] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 19:53:09,446 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 19:53:09,447 [15] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 19:53:09,609 [7] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 19:53:09,609 [7] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 19:54:22,589 [7] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 19:54:22,589 [7] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 19:55:20,123 [7] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 19:55:20,125 [7] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 19:59:34,428 [7] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 19:59:34,429 [7] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 19:59:35,214 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 19:59:35,214 [15] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 20:04:52,690 [9] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:04:52,801 [9] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:235) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:04:56,888 [9] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:04:56,924 [9] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:235) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:04:59,140 [9] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:04:59,176 [9] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:235) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:07:01,833 [9] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:07:01,868 [9] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:235) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:08:36,964 [6] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 20:08:36,968 [6] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 20:15:32,364 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user4从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:19:03,974 [10] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:19:04,056 [10] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:235) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:19:18,865 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user4从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:19:31,460 [6] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user4从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:19:31,472 [6] (E:\code\VDIUI\VDI\User.xaml.cs:106) ERROR VDI.YZ_Home [(null)] - 为用户user4从192.168.0.63处获取桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:20:05,911 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user1从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:20:05,971 [15] (E:\code\VDIUI\VDI\User.xaml.cs:106) ERROR VDI.YZ_Home [(null)] - 为用户user1从192.168.0.63处获取桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:20:10,016 [16] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user1从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:20:10,029 [16] (E:\code\VDIUI\VDI\User.xaml.cs:106) ERROR VDI.YZ_Home [(null)] - 为用户user1从192.168.0.63处获取桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:20:23,651 [14] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user1从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:20:23,660 [14] (E:\code\VDIUI\VDI\User.xaml.cs:106) ERROR VDI.YZ_Home [(null)] - 为用户user1从192.168.0.63处获取桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:23:00,431 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user4从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-15 20:24:31,639 [11] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:200) ERROR ServerChannel.ServerCommunicator [(null)] - getPools--用户名或密码有误
+2013-01-15 20:30:19,547 [14] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 20:30:19,598 [14] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 20:31:13,630 [12] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 20:31:13,630 [12] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 20:32:38,499 [12] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 20:32:38,596 [12] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-15 20:33:53,264 [14] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 20:33:53,323 [14] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user1
+2013-01-15 20:34:09,924 [14] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-15 20:34:09,925 [14] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:144) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user1
+2013-01-16 15:01:54,624 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:200) ERROR ServerChannel.ServerCommunicator [(null)] - getPools--用户名或密码有误
+2013-01-16 15:15:12,448 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:200) ERROR ServerChannel.ServerCommunicator [(null)] - getPools--用户名或密码有误
+2013-01-16 15:15:37,105 [16] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user1从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:15:37,114 [16] (E:\code\VDIUI\VDI\User.xaml.cs:121) ERROR VDI.YZ_Home [(null)] - 为用户user1从192.168.0.63处获取桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:15:48,343 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户1从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:15:48,352 [15] (E:\code\VDIUI\VDI\User.xaml.cs:121) ERROR VDI.YZ_Home [(null)] - 为用户1从192.168.0.63处获取桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:16:10,214 [6] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:200) ERROR ServerChannel.ServerCommunicator [(null)] - getPools--用户名或密码有误
+2013-01-16 15:16:58,152 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户123从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:16:58,199 [13] (E:\code\VDIUI\VDI\User.xaml.cs:121) ERROR VDI.YZ_Home [(null)] - 为用户123从192.168.0.63处获取桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:29:46,712 [14] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:200) ERROR ServerChannel.ServerCommunicator [(null)] - getPools--用户名或密码有误
+2013-01-16 15:30:13,692 [14] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:188) ERROR ServerChannel.ServerCommunicator [(null)] - 为用户user4从192.168.0.63处获取桌面池信息时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:30:13,703 [14] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:293) ERROR VDI.DesktopPools [(null)] - 更新桌面池信息时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:35:53,646 [8] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 15:35:53,724 [8] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:235) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 16:36:52,283 [11] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 16:36:52,384 [11] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:145) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 16:37:20,376 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 16:37:20,377 [15] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:145) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 16:46:02,690 [16] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 16:46:02,835 [16] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 16:46:03,393 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 16:46:03,393 [15] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 16:56:30,665 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:144) ERROR ServerChannel.ServerCommunicator [(null)] - 从198.168.0.63获取域信息（）时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 16:56:30,715 [13] (E:\code\VDIUI\VDI\YZ_Home.xaml.cs:60) ERROR VDI.YZ_Home [(null)] - getDomains(198.168.0.63)发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 16:56:50,924 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 16:56:50,926 [13] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 16:57:36,677 [17] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 16:57:36,678 [17] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 16:58:47,837 [6] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 16:58:47,838 [6] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 16:59:08,604 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 16:59:08,605 [15] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 17:00:03,426 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:00:03,436 [13] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:244) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool1中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:00:16,326 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:00:16,336 [15] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:244) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:03:07,271 [14] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:03:07,322 [14] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:245) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool1中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:05:01,467 [16] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:357) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面状态（）时产生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:05:01,520 [16] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:134) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面状态时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:05:11,653 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:05:11,663 [13] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:245) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool2中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:05:14,552 [7] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:300) ERROR ServerChannel.ServerCommunicator [(null)] - 请求桌面（）时发生错误，错误信息为：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:05:14,561 [7] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:245) ERROR VDI.DesktopPools [(null)] - 为用户user4请求桌面池pool1中的桌面时产生错误：基础连接已经关闭: 接收时发生错误。
+2013-01-16 17:05:29,841 [13] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 17:05:29,842 [13] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 17:11:59,508 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 17:11:59,550 [15] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4
+2013-01-16 17:13:52,149 [15] (E:\code\VDIUI\ServerChannel\ServerCommunicator.cs:346) ERROR ServerChannel.ServerCommunicator [(null)] - 错误：池中当前没有可用的桌面分配给用户
+2013-01-16 17:13:52,191 [15] (E:\code\VDIUI\VDI\DesktopPools.xaml.cs:141) ERROR VDI.DesktopPools [(null)] - 没有空闲桌面可分配给用户user4

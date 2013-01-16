@@ -113,7 +113,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>-->
-        <StackPanel  Grid.Row="0" HorizontalAlignment="Center" Width="378" Margin="0" VerticalAlignment="Center" >
+        <StackPanel x:Name="contentPanel" Grid.Row="0" HorizontalAlignment="Center" Width="378" Margin="0" VerticalAlignment="Center" >
         	<StackPanel Height="31" Orientation="Horizontal" Margin="0">
         		<StackPanel Width="130" Orientation="Horizontal" Height="27.65" VerticalAlignment="Top">
                     <Button  Style="{StaticResource LinkButton}" x:Name="userLabel" Click="userLabel_Click"/>

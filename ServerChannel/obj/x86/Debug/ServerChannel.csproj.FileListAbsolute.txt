@@ -11,6 +11,7 @@ E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\GenerateResource.read.1.
 E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\GenerateResource.write.1.tlog
 E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\ServerChannel.exe
 E:\study\VirtualDesktop\VDI\ServerChannel\obj\x86\Debug\ServerChannel.pdb
+E:\code\VDIUI\ServerChannel\bin\Debug\ServerChannel.exe.config
 E:\code\VDIUI\ServerChannel\bin\Debug\ServerChannel.exe
 E:\code\VDIUI\ServerChannel\bin\Debug\ServerChannel.pdb
 E:\code\VDIUI\ServerChannel\obj\x86\Debug\ResolveAssemblyReference.cache

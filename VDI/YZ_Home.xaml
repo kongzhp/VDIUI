@@ -48,7 +48,7 @@
         <Label  Grid.Row="0" FontWeight="Bold" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20">
             云 晫 科 技
         </Label>
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0" >
+        <StackPanel x:Name="contentPanel" Grid.Row="1" HorizontalAlignment="Center" Margin="0" >
         	<StackPanel Height="47" Orientation="Horizontal" HorizontalAlignment="Center">
 
         		<TextBox x:Name="ipTextBox" Height="28.5" Width="270" Margin="0,0,6,0" Padding="1 3" TextWrapping="Wrap" 

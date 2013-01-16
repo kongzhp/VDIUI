@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.IO;
+using log4net;
 
 namespace ServerChannel
 {
@@ -22,6 +23,8 @@ namespace ServerChannel
      */
     public class ServerCommunicator
     {
+        private static readonly ILog logger = LogManager.GetLogger(typeof(ServerCommunicator));
+
         private HttpWebRequest generateRequest(string url, string method = "GET", bool allowAutoRedirect = false)
         {
             HttpWebRequest request = null;
@@ -29,8 +32,9 @@ namespace ServerChannel
             {
                 request = (HttpWebRequest)WebRequest.Create(url);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                logger.Error("创建Http请求时（url为" + url + "）产生错误，错误信息：" + e.Message);
                 throw;
             }
             request.Method = method;
@@ -40,17 +44,7 @@ namespace ServerChannel
             return request;
         }
 
-        /*
-         * Usage: 返回给定ip的server所在的cluster中的其他server ip
-         * Param: ip(string): server ip
-         * Retern: ArrayList: 其他servers ip组成的arraylist，如{"192.168.0.1", "192.168.0.2"}
-         *         如果为空数组，则表示返回信息为空或格式不对或没有server ip返回
-         * Throw: 可能有以下几种类型的异常产生，此处不作处理直接抛出
-         *   IOException, OutOfMemoryException: IO异常，产生自ReadToEnd
-         *   WebExcption: 处理请求超时或发生错误，产生自GetResponse
-         *   OtherException: 其他一些异常，产生自create request, StreamReader
-         */
-        public ArrayList getServersOfCluster(string ip)
+        /*public ArrayList getServersOfCluster(string ip)
         {
             if (null == ip || ip.Equals(""))
                 return new ArrayList();
@@ -88,25 +82,28 @@ namespace ServerChannel
             }
 
             return result;
-        }
+        }*/
 
         /*
          * Usage: 返回给定ip的server vdi虚拟机中所有的domain
          * Param: ip(string): server ip
          * Retern: ArrayList: 元素为Domain类对象
-         *         如果为空，则表示返回信息为空或格式不对或没有domain返回
          * Throw: 可能有以下几种类型的异常产生，此处不作处理直接抛出
          *   IOException, OutOfMemoryException: IO异常，产生自ReadToEnd
          *   WebExcption: 处理请求超时或发生错误，产生自GetResponse
-         *   OtherException: 其他一些异常，产生自create request, StreamReader
+         *   OtherException: 其他一些异常，产生自create request, StreamReader等
          */
         public ArrayList getDomains(string ip)
         {
             if (null == ip || ip.Equals(""))
-                return new ArrayList();
+            {
+                logger.Error("getDomains--ip为空");
+                throw new Exception("ip不能为空");
+            }
 
             string url = "http://" + ip + "/dp/rpc/dc/getdomains";
             string s = "";
+            ArrayList result = new ArrayList();
 
             try
             {
@@ -117,27 +114,36 @@ namespace ServerChannel
                 s = sr.ReadToEnd().Trim();
 
                 response.Close();
-                sr.Close();
+                sr.Close();          
+               
+                string[] ss = s.Split('\n');
+                if (ss.Length < 3)
+                {
+                    logger.Error("getDomains--域信息(" + s + ")格式有误");
+                    throw new Exception("返回的域信息格式有误");
+                }
+
+                string[] sss = ss[0].Split('=');
+                int num = Int32.Parse(sss[1]); // domain.num = num
+                if (num <= 0)
+                {
+                    logger.Error("getDomains--域个数(" + sss[1] + ")应大于0");
+                    throw new Exception("域个数为0");
+                }
+                int i = 1;
+                while (i <= 2*num)
+                {
+                    string[] sss1 = ss[i++].Split('=');   // domain name
+                    string[] sss2 = ss[i++].Split('=');   // domain id
+                    Domain domain = new Domain(sss2[1], sss1[1]);
+                    result.Add(domain);
+                }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                logger.Error("从" + ip + "获取域信息（" + s + "）时产生错误，错误信息为：" + e.Message);
                 throw;
             }
-
-            ArrayList result = new ArrayList();
-            string[] ss = s.Split('\n');
-            if (ss.Length < 3)
-                return result;
-
-            for (int i = 0; i < (ss.Length - 1) / 2; i++)
-            {
-                string[] sss1 = ss[1 + i * 2].Split('=');   // domain name
-                string[] sss2 = ss[2 + i * 2].Split('=');   // domain id
-                if (sss1.Length < 2 || sss2.Length < 2)
-                    continue;
-                Domain domain = new Domain(sss2[1], sss1[1]);
-                result.Add(domain);
-            }         
 
             return result;
         }
@@ -158,7 +164,10 @@ namespace ServerChannel
         public GetPoolResult getPoosWithAuth(string ip, string username, string password, string domain)
         {
             if (null == ip || ip.Equals(""))
-                return null;
+            {
+                logger.Error("getPools--ip为空");
+                throw new Exception("ip不能为空");
+            }
 
             string url = "http://" + ip + "/dp/rpc/dc/login?user=" + username + "&ldap=" + domain + "&pass=" + password;
             string s = "";
@@ -174,18 +183,23 @@ namespace ServerChannel
                 response.Close();
                 sr.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                logger.Error("为用户" + username + "从" + ip + "处获取桌面池信息时产生错误，错误信息为：" + e.Message);
                 throw;
             }       
             
             string[] ss = s.Split('\n');
             if (ss[0].Equals("error=No desktop is assigned to the user."))
             {
+                logger.Error("getPools--没有任何桌面池被分配给用户" + username);
                 return new GetPoolResult();
             }
             else if (ss[0].Equals("error=An incorrect user name or password was entered."))
+            {
+                logger.Error("getPools--用户名或密码有误");
                 return null;
+            }
 
             string userId = "";
             ArrayList pools = new ArrayList();
@@ -231,8 +245,9 @@ namespace ServerChannel
                     pools.Add(pool);
                 }
             }
-            catch (Exception)
+            catch (Exception ee)
             {
+                logger.Error("为用户" + username + "从" + ip + "处获取桌面池信息时产生错误，错误信息为：" + ee.Message);
                 throw;
             }
 
@@ -248,7 +263,6 @@ namespace ServerChannel
          *        domain_name(string): domain name
          *        pool_id(string): pool id
          * Retern: string: request id 
-         *         如果为null，则表示返回信息为空或格式不对
          * Throw: 可能有以下几种类型的异常产生，此处不作处理直接抛出
          *   IOException, OutOfMemoryException: IO异常，产生自ReadToEnd
          *   WebExcption: 处理请求超时或发生错误，产生自GetResponse
@@ -257,10 +271,14 @@ namespace ServerChannel
         public string requestDesktop(string ip, string user_id, string domain_name, string pool_id)
         {
             if (null == ip || ip.Equals(""))
-                return null;
+            {
+                logger.Error("requestDesktop--ip为空");
+                throw new Exception("ip不能为空");
+            }
 
             string url = "http://" + ip + "/dp/rpc/dc/request?user=" + user_id + "&domain=" + domain_name + "&pool=" + pool_id;
             string s = "";
+            string result = "";
 
             try
             {
@@ -272,20 +290,17 @@ namespace ServerChannel
 
                 response.Close();
                 sr.Close();
+
+                string[] ss = s.Split('\n');
+                string[] sss = ss[0].Split('=');
+                result = sss[1];
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                logger.Error("请求桌面（" + s + "）时发生错误，错误信息为：" + e.Message);
                 throw;
             }
-
-            string[] ss = s.Split('\n');
-            if (ss.Length < 1)
-                return null;
-
-            string[] sss = ss[0].Split('=');
-            if (sss.Length < 2)
-                return null;
-            return sss[1];
+            return result;
         }
 
         /*
@@ -304,10 +319,14 @@ namespace ServerChannel
         public string getDesktopStatus(string ip, string request_id)
         {
             if (null == ip || ip.Equals(""))
-                return null;
+            {
+                logger.Error("getDesktopStatus--ip为空");
+                throw new Exception("ip不能为空");
+            }
 
             string url = "http://" + ip + "/dp/rpc/dc/connect?request=" + request_id;
             string s = "";
+            string result = "";
 
             try
             {
@@ -318,24 +337,28 @@ namespace ServerChannel
                 s = sr.ReadToEnd().Trim();
 
                 response.Close();
-                sr.Close();
-            }
-            catch (Exception)
+                sr.Close();           
+
+                if (s.Equals(""))
+                    return "not ready";
+                else if (s.Contains("error"))
+                {
+                    logger.Error("错误：池中当前没有可用的桌面分配给用户");
+                    return null;
+                }
+
+                string[] ss = s.Split('\n');
+                string[] sss1 = ss[0].Split('=');
+                string[] sss2 = ss[1].Split('=');
+                result = sss1[1] + ":" + sss2[1];
+             }
+            catch (Exception e)
             {
+                logger.Error("请求桌面状态（" + s + "）时产生错误，错误信息为：" + e.Message);
                 throw;
             }
 
-            if (s.Equals(""))
-                return "not ready";
-            else if (s.Contains("error"))
-                return null;
-
-            string[] ss = s.Split('\n');
-            string[] sss1 = ss[0].Split('=');
-            string[] sss2 = ss[1].Split('=');
-            if (sss1.Length < 2 || sss2.Length < 2)
-                return null;
-            return sss1[1] + ":" + sss2[1];
+            return result;
         }
     }
 }

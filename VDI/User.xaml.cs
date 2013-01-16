@@ -12,10 +12,12 @@ using System.Windows.Shapes;
 using System.Collections;
 using ServerChannel;
 using System.Threading;
+using log4net;
 namespace VDI
 {
 	public partial class User
 	{
+        private static readonly ILog logger = LogManager.GetLogger(typeof(YZ_Home));
         private ArrayList DomainList {get; set;} //domainList每个元素是Domains对象
        // public ArrayList DomainNameList { get; set; } //把DomainList的string[0]保存到此，绑定到combobox
         public PoolList Plist { get; set; } //桌面池
@@ -30,7 +32,7 @@ namespace VDI
 		{
 			this.InitializeComponent();
             serverChannel = new ServerCommunicator();
-            domainListBox.ItemContainerGenerator.StatusChanged += new EventHandler(ItemContainerGenerator_StatusChanged);
+            //domainListBox.ItemContainerGenerator.StatusChanged += new EventHandler(ItemContainerGenerator_StatusChanged);
 			// Insert code required on object creation below this point.
 		}
         //当domain Box加载完时，把第一项设为默认
@@ -60,6 +62,13 @@ namespace VDI
             box.BorderThickness = new Thickness(1.0);
        
         }
+        private void PasswordBoxItem_LostFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordBox box = sender as PasswordBox;
+            box.BorderBrush = Brushes.White;
+            box.BorderThickness = new Thickness(1.0);
+
+        }
         private void ComboBoxItem_LostFocus(object sender, RoutedEventArgs e)
         {
             ComboBox box = sender as ComboBox;
@@ -69,13 +78,19 @@ namespace VDI
         }
         private void connectServer()
         {
-            this.Dispatcher.BeginInvoke(
-                System.Windows.Threading.DispatcherPriority.Normal,
-                (UpdateTheUI)delegate()
-                {
-                    try
+            try
+            {
+                this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
                     {
-                        GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
+                        contentPanel.IsEnabled = false;
+                    });
+                GetPoolResult res = serverChannel.getPoosWithAuth(IP, userName, pwd, domainID);
+                this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
+                    {
                         if (res == null)
                         {
                             warningBlock.Text = "* 账号或密码错误。";
@@ -85,32 +100,30 @@ namespace VDI
                         {
 
                             UserID = res.getUserId();
-                            if (UserID.Contains("incorrect"))
-                            {
-                                warningBlock.Text = "* 账号或密码错误。";
-                                warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
-                            }
-                            else
-                            {
-                                Plist = res.getPoolList();
-                                DesktopPools dpools = new DesktopPools(IP, UserID, userName, pwd, Plist, domainName, domainID);
-                                this.NavigationService.Navigate(dpools);
-                            }
+                            Plist = res.getPoolList();
+                            DesktopPools dpools = new DesktopPools(IP, UserID, userName, pwd, Plist, domainName, domainID);
+                            this.NavigationService.Navigate(dpools);
                         }
-
-                    }
-                    catch (Exception ex)
+                  });
+            }
+            catch (Exception ex)
+            {
+                logger.Error("为用户" + userName + "从" + IP + "处获取桌面池信息时产生错误：" + ex.Message);
+                String errorText = "登录超时或者产生错误，请确保网络连通，或联系网络管理员。";
+                MessageBoxButton btn = MessageBoxButton.OK;
+                MessageBoxImage img = MessageBoxImage.Error;
+                MessageBox.Show(errorText, "网络异常", btn, img);
+            }
+            finally
+            {
+                this.Dispatcher.BeginInvoke(
+                    System.Windows.Threading.DispatcherPriority.Normal,
+                    (UpdateTheUI)delegate()
                     {
-                        String errorText = "连接服务器超时或者产生错误，请确保服务器IP正确，或联系网络管理员。";
-                        MessageBoxButton btn = MessageBoxButton.OK;
-                        MessageBoxImage img = MessageBoxImage.Error;
-                        MessageBox.Show(errorText, "网络异常", btn, img);
-                    }
-                    finally
-                    {
+                        contentPanel.IsEnabled = true;
                         this.Cursor = Cursors.Arrow;
-                    }
-                });
+                    });
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -134,7 +147,7 @@ namespace VDI
             {
                 warningBlock.Text = "* 密码不能为空。";
                 warningBlock.Style = (Style)this.Resources["warningBoxStyle"];
-                password.Style = (Style)this.Resources["boxHightlight"];
+                password.Style = (Style)this.Resources["passwordboxHightlight"];
             }
             else if (domainListBox.SelectedItem == null)
             {
